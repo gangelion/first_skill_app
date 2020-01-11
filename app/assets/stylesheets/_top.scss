@@ -1,0 +1,79 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.top {
+  background-color: green;
+  width: 100vw;
+  height: 70px;
+}
+.main {
+  height: 100%;
+  h1 {
+    font-size: 50px;
+    color: #13b1c0;
+  }
+  &__view { 
+    background-color: red;
+    width: calc(100vw - 200px);
+    margin: 0 auto;
+    display: flex;
+    .content_image {
+      
+      .main_image {
+        width: 100%;
+      }
+    }
+  }
+  .btn__wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 250px;
+    .mentor {
+      width: 50%; 
+      .mentor__box {
+        .mentorimg {
+          width: 500px;
+        }
+        .btn {
+          margin:0 100px;
+        }
+      }
+    }
+    .user {
+      width: 50%;
+      .user__box {
+        .userimg {
+          width: 500px;
+        }
+        .btn {
+          margin:0 100px;
+        }
+      }
+    }
+  }
+  &__content {
+    background-color: blue;
+    width: calc(100vw - 200px);
+    margin: 0 auto;
+    .main__under_content {
+      .under_image {
+        height: 300px;
+        width: 100%;
+      }
+    } 
+  }
+  .btn__under_wrapper {
+    // display: flex;
+    justify-content: center;
+    text-align: center;
+    .btn {
+      margin:0 100px;
+    }
+  }
+}
+footer {
+  width: 100vw;
+  height: 70px;
+  background-color: pink;
+}
