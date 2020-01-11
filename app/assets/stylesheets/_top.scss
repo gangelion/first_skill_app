@@ -1,13 +1,10 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.top {
-  background-color: green;
-  width: 100vw;
-  height: 70px;
-}
+
 .main {
   height: 100%;
+  background-color: #f4f8fa;
   h1 {
     font-size: 50px;
     color: #13b1c0;
@@ -64,16 +61,10 @@
     } 
   }
   .btn__under_wrapper {
-    // display: flex;
     justify-content: center;
     text-align: center;
     .btn {
       margin:0 100px;
     }
   }
-}
-footer {
-  width: 100vw;
-  height: 70px;
-  background-color: pink;
 }

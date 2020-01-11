@@ -1,3 +1,25 @@
 @import "reset";
 @import "messages";
 @import "top";
+
+
+.top {
+  background-color: green;
+  width: 100vw;
+  height: 70px;
+}
+
+footer {
+  padding: 10px 200px;
+  width: 100vw;
+  height: 300px;
+  background-color: pink;
+  display: flex;
+  .footer__left {
+    margin-right: 50px;
+
+  }
+  .footer__right {
+    margin-right: 50px;
+  }
+}
