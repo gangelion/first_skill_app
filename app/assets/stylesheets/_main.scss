@@ -1,0 +1,16 @@
+.dashContent {
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+
+  &__left {
+    background-color: yellowgreen;
+    width: 300px;
+  }
+  &__right {
+    background-color: aquamarine;
+    height: 700px;
+    width: 100vw;
+  }
+
+}

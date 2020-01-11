@@ -1,0 +1,59 @@
+.dashContent
+  .dashContent__left
+    %ul.dashContent__sidemenu
+      %li
+        %a.active{href: "https://menta.work"}
+          %i.fas.fa-home
+          ダッシュボード
+      %li
+        %a{href: "https://menta.work/member/message"}
+          %i.far.fa-envelope
+          メッセージ
+      %li
+        %a{href: "https://menta.work/member/mentor/contracting"}
+          %i.fas.fa-chalkboard-teacher
+          メンター
+        %ul
+          %li
+            %a{href: "https://menta.work/member/mentor/contracting"} メンター
+          %li
+            %a{href: "https://menta.work/member/mentee/contracting"} メンティー
+          %li
+            %a{href: "https://menta.work/member/plan/edit"} メンタープランの登録
+          %li
+            %a{href: "https://menta.work/member/payment"} 売上履歴
+          %li
+            %a{href: "https://menta.work/member/charge"} 課金履歴
+      %li
+        %a{href: "https://menta.work/member/mentor/contracting"}
+          %i.fas.fa-laptop-code
+          ワーカー
+        %ul
+          %li
+            %a{href: "https://menta.work/member/worker_plan/edit"} ワーカープランの登録
+      %li
+        %a{href: "https://menta.work/user/12255"}
+          %i.fas.fa-id-card
+          プロフィール
+      %li
+        %a{href: "https://menta.work/post"}
+          %i.fas.fa-stream
+          タイムライン
+      %li
+        %a{href: "https://menta.work/post?edit=1"}
+          %i.far.fa-comments
+          投稿したコンテンツ
+      %li
+        %a{href: "https://menta.work/member/config/profile"}
+          %i.fas.fa-cog
+          設定
+    %p.small
+      %a{href: "https://menta.work/member/plan/edit"} メンタープランの登録はこちら
+
+      -# dashContent-right
+
+  .dashContent__right
+    %textarea 
+    .dashContent__right_btn 
+    %a(href="")チャットへ
+
