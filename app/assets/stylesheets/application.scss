@@ -1,13 +1,34 @@
 @import "reset";
-@import "messages";
 @import "top";
 @import "main";
+@import "chats_second";
 
 
 .top {
   background-color: green;
   width: 100vw;
   height: 70px;
+  .app_title {
+    line-height: 70px;
+    padding: 0 50px;
+  }
+  .log_btn {
+    float: right;
+    padding: 0 70px;
+    line-height: 70px;
+    
+    .log_in {
+      padding: 10px;
+    }
+    .new_registration {
+
+    }
+  }
+  .log_out {
+    float: right;
+    line-height: 70px;
+    padding: 0 100px;
+  }
 }
 
 footer {

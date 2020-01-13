@@ -1,0 +1,51 @@
+.chatheader {
+  background-color: orange;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 30px;
+}
+
+.chatmain {
+  display: flex;
+  .video {
+    background-color: aquamarine;
+    height: calc(100vh - 50px);
+    width: 50%;
+    position: relative;
+
+    .student__video {
+      background-color: burlywood;
+      height: 250px;
+      width: 250px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+    }
+  }
+  .chats {
+    background-color: cornflowerblue;
+    height: calc(100vh - 50px);
+    width: 50%;
+    position: relative;
+    .chat__text_box {
+      position: absolute;
+      background-color: plum;
+      height: 80px;
+      width: 100%;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      .chat__text {
+        background-color: powderblue;
+        margin-left: 30px;
+        width: 90%;
+        height: 70px;
+      }
+      .chat__send_btn {
+        background-color: rosybrown;
+        height: 40px;
+      }
+    }
+  }
+}

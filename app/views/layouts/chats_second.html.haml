@@ -1,0 +1,22 @@
+-# この画面のみヘッダーとフッターを変更
+!!!
+%html{lang: "ja"}
+  %head
+    %meta{charset: "UTF-8"}/
+    %title chat
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+  %body
+    .chatheader 
+      %a{href: main_index_path, class: "go_to_main"} メイン画面へ戻る
+    %main.chatmain
+      .video 
+        ビデオ
+        .student__video 
+          生徒用ビデオ
+      .chats 
+        チャット
+        .chat__text_box 
+          %textarea.chat__text 
+            テキスト 
+          %button.chat__send_btn ボタン
+    

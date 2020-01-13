@@ -14,17 +14,17 @@
     .mentor
       .mentor__box
         = image_tag "https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg", alt: "test", class: "mentorimg"
-        %button.btn.btn-primary.btn-lg{type: "button", onclick: "location.href='#{new_user_session_path}'"} メンターになる
+        %button.btn.btn-primary.btn-lg{type: "button", onclick: "location.href='#{new_user_registration_path}'"} メンターになる
     .user
       .user__box
         = image_tag "https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg", alt: "test", class: "userimg"
-        %button.btn.btn-primary.btn-lg{type: "button", onclick: "location.href='#{new_user_session_path}'"} ユーザーになる
+        %button.btn.btn-primary.btn-lg{type: "button", onclick: "location.href='#{new_user_registration_path}'"} ユーザーになる
   .main__content
     .main__under_content
       .under_content_image
         = image_tag "https://cdn.pixabay.com/photo/2018/09/15/13/28/trainer-3679422_1280.jpg", alt: "test", class: "under_image" 
   .btn__under_wrapper
-    %button.btn.btn-primary.btn-lg.userbtn{type: "button", onclick: "location.href='#{new_user_session_path}'"} メンターになる
-    %button.btn.btn-primary.btn-lg.mentorbtn{type: "button", onclick: "location.href='#{new_user_session_path}'"} ユーザーになる
+    %button.btn.btn-primary.btn-lg.userbtn{type: "button", onclick: "location.href='#{new_user_registration_path}'"} メンターになる
+    %button.btn.btn-primary.btn-lg.mentorbtn{type: "button", onclick: "location.href='#{new_user_registration_path}'"} ユーザーになる
 
 
