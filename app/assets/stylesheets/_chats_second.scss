@@ -28,6 +28,18 @@
     height: calc(100vh - 50px);
     width: 50%;
     position: relative;
+    overflow: auto;
+    &__message_user {
+      background-color: burlywood;
+      padding: 20px;
+      .message {
+        padding: 10px;
+        background-color: white;
+        .message_time {
+          background-color: cyan;
+        }
+      }
+    }
     .chat__text_box {
       position: absolute;
       background-color: plum;
@@ -36,15 +48,32 @@
       bottom: 0;
       display: flex;
       align-items: center;
-      .chat__text {
-        background-color: powderblue;
-        margin-left: 30px;
-        width: 90%;
-        height: 70px;
+      position: fixed;
+      .input_box {
+        display: flex; 
+        position: relative;
+        .chat__text {
+          background-color: powderblue;
+          margin-left: 30px;
+          width: 35vw;
+          height: 70px;
+          .fa-camera {
+            
+          }
+        }
+        label {
+          position: absolute;
+          top: 30px;
+          right: 30px;
+          .image_btn {
+            display: none;
+          }
+        }
       }
       .chat__send_btn {
         background-color: rosybrown;
         height: 40px;
+        margin-left: 15px;
       }
     }
   }

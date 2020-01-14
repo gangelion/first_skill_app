@@ -14,9 +14,20 @@
         .student__video 
           生徒用ビデオ
       .chats 
-        チャット
-        .chat__text_box 
-          %textarea.chat__text 
-            テキスト 
-          %button.chat__send_btn ボタン
+        .chats__message_user
+          - @chats.each do |chat|
+            .message
+              .message_time
+              = chat.created_at
+              - if chat.content.present?
+                %p.chats__content
+                  = chat.content
+                = image_tag chat.image.url, class: 'message__chat-image' if chat.image.present?
+        = form_with model: @chat, url: chats_path, class: :chat__text_box , local: true do |form|
+          .input_box 
+            = form.text_field :content, class: :chat__text
+            = form.label :image do
+              = form.file_field :image, type: 'file', class: "image_btn"
+              %i.fa.fa-camera
+          = form.submit 'メッセージ', class: :chat__send_btn 
     
