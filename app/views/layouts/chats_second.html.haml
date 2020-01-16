@@ -24,7 +24,7 @@
               - if chat.content.present?
                 %p.chats__content
                   = chat.content
-              = image_tag chat.image.url, class: 'message__chat-image' if chat.image.present?
+              = image_tag chat.image.url, class: 'message__chat-image' if chat.image.url.present?
         = form_with model: @chat, url: chats_path, class: :chat__text_box , local: true do |form|
           .input_box 
             = form.text_field :content, class: :chat__text
