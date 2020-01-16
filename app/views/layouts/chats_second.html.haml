@@ -5,6 +5,8 @@
     %meta{charset: "UTF-8"}/
     %title chat
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+    = javascript_include_tag 'application'
   %body
     .chatheader 
       %a{href: main_index_path, class: "go_to_main"} メイン画面へ戻る
@@ -18,11 +20,11 @@
           - @chats.each do |chat|
             .message
               .message_time
-              = chat.created_at
+                = chat.created_at
               - if chat.content.present?
                 %p.chats__content
                   = chat.content
-                = image_tag chat.image.url, class: 'message__chat-image' if chat.image.present?
+              = image_tag chat.image.url, class: 'message__chat-image' if chat.image.present?
         = form_with model: @chat, url: chats_path, class: :chat__text_box , local: true do |form|
           .input_box 
             = form.text_field :content, class: :chat__text

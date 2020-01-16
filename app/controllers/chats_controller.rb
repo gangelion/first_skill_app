@@ -6,8 +6,11 @@ class ChatsController < ApplicationController
 
   def create
     @chat = Chat.new
-    Chat.create(chat_params) 
-    redirect_to chats_index_path 
+    @chating = Chat.create(chat_params) 
+    respond_to do |format|
+      format.html { redirect_to chats_path }
+      format.json
+    end
   end
 
   private
