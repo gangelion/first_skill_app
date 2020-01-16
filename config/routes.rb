@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'main/index'
-  get 'main/show'
-  get 'chats/index'
-  post 'chats', to: 'chats#create'
+  resources :main, only: [:index, :show]
+  resources :chats, only: [:index, :create]
 
   devise_scope :user do
   get '/users/sign_out' => 'devise/sessions#destroy'
