@@ -20,7 +20,7 @@
           - @chats.each do |chat|
             .message
               .message_time
-                = chat.created_at
+                = chat.created_at.to_s(:datetime_jp)
               - if chat.content.present?
                 %p.chats__content
                   = chat.content
