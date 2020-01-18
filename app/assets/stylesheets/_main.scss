@@ -1,4 +1,4 @@
-.dashContent {
+.dash_content {
   display: flex;
   width: 1200px;
   margin: 0 auto;
@@ -11,6 +11,36 @@
     background-color: aquamarine;
     height: 700px;
     width: 100vw;
+    .header_text {
+      text-align: center;
+      font-size: 30px;
+      color: black;
+      margin: 30px auto;
+    }
+    .language {
+      display: flex;
+      &__content {
+        position: relative;
+        margin: 30px auto;
+        &_link {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform : translate(-50%,-50%);
+        }
+        .active {
+          opacity: 0.5;
+        }
+      }
+    }
+    &_btn {
+      text-align: center;
+      margin: 30px auto;
+      input {
+        background-color: aqua;
+      }
+      
+    }
   }
 
 }
