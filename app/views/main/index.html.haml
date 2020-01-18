@@ -1,6 +1,6 @@
-.dashContent
-  .dashContent__left
-    %ul.dashContent__sidemenu
+.dash_content
+  .dash_content__left
+    %ul.dash_content__sidemenu
       %li
         %a.active{href: "https://menta.work"}
           %i.fas.fa-home
@@ -50,10 +50,37 @@
     %p.small
       %a{href: "https://menta.work/member/plan/edit"} メンタープランの登録はこちら
 
-      -# dashContent-right
+      -# dash_content-right
 
-  .dashContent__right
-    %textarea 
-    .dashContent__right_btn 
-      %a(href="#{chats_path}")チャットへGo
+  .dash_content__right
+    .header_text
+      学べる言語一覧
+    .language      
+      .language__content
+        = link_to "HTML", "#", class: "language__content_link"
+        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
+      .language__content 
+        = link_to "CSS", "#", class: "language__content_link"
+        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
+      .language__content
+        = link_to "Ruby", "#", class: "language__content_link"
+        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
+      .language__content
+        = link_to "Javascript", "#", class: "language__content_link"
+        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
+    .language      
+      .language__content
+        = link_to "Python", "#", class: "language__content_link"
+        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
+      .language__content 
+        = link_to "Go", "#", class: "language__content_link"
+        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
+      .language__content
+        = link_to "PHP", "#", class: "language__content_link"
+        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
+      .language__content
+        = link_to "C", "#", class: "language__content_link"
+        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
+    .dash_content__right_btn 
+      = button_to('チャットを始める', "#{chats_path}", disabled: true)
 
