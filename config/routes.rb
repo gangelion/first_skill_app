@@ -13,7 +13,7 @@ devise_for :users, controllers: {
   resources :chats, only: [:index, :create]
   
   namespace :mentors do
-    resources :main, only: :index
+    resources :main, only: [:index, :create]
   end
 
   devise_scope :user do
