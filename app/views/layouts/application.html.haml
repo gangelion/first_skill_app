@@ -15,12 +15,9 @@
     %script{crossorigin: "anonymous", integrity: "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1", src: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"}
     %script{crossorigin: "anonymous", integrity: "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", src: "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"}
     %header.top 
-      - unless user_signed_in?
+      - unless user_signed_in? || mentor_signed_in?
         %a{href: root_path, class: "app_title"} 
           FirstSkillApp
-        .log_btn  
-          %a{href: new_user_session_path, class: "log_in"} ログイン
-          %a{href: new_user_registration_path, class: "new_registration"} 新規登録
       - else
         %a{href: destroy_user_session_path, class: "log_out"} ログアウト
     = yield
