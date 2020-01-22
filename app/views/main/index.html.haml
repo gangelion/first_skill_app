@@ -55,32 +55,32 @@
   .dash_content__right
     .header_text
       学べる言語一覧
-    .language      
-      .language__content
-        = link_to "HTML", "#", class: "language__content_link"
-        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
-      .language__content 
-        = link_to "CSS", "#", class: "language__content_link"
-        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
-      .language__content
-        = link_to "Ruby", "#", class: "language__content_link"
-        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
-      .language__content
-        = link_to "Javascript", "#", class: "language__content_link"
-        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
-    .language      
-      .language__content
-        = link_to "Python", "#", class: "language__content_link"
-        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
-      .language__content 
-        = link_to "Go", "#", class: "language__content_link"
-        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
-      .language__content
-        = link_to "PHP", "#", class: "language__content_link"
-        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
-      .language__content
-        = link_to "C", "#", class: "language__content_link"
-        = image_tag 'https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg', alt: '', height: '100px', width: '100px', class: 'language__content_listimage'
-    .dash_content__right_btn 
-      = button_to('チャットを始める', "#{chats_path}", disabled: true)
+    = form_with(url: mentor_select_index_path, method: :get, local: true) do |f|
+      .language   
+        .language__content
+          = f.label("HTML/CSS", "HTML/CSS")
+          = f.radio_button :language, "HTML/CSS"
+        .language__content
+          = f.label("Ruby", "Ruby")
+          = f.radio_button :language, "Ruby"
+        .language__content
+          = f.label("Javascript", "Javascript")
+          = f.radio_button :language, "Javascript"
+        .language__content
+          = f.label("Pyhton", "Pyhton")
+          = f.radio_button :language, "Pyhton"
+        .language__content
+          = f.label("Go", "Go")
+          = f.radio_button :language, "Go"
+        .language__content
+          = f.label("PHP", "PHP")
+          = f.radio_button :language, "PHP"
+        .language__content
+          = f.label("Java", "Java")
+          = f.radio_button :language, "Java"
+        .language__content
+          = f.label("Kotlin", "Kotlin")
+          = f.radio_button :language, "Kotlin"
+      .dash_content__right_btn
+        = f.submit("メンターを探す")
 

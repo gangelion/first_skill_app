@@ -11,9 +11,10 @@ devise_for :users, controllers: {
 }
   resources :main, only: [:index, :show]
   resources :chats, only: [:index, :create]
+  resources :mentor_select, only: [:index, :show]
   
   namespace :mentors do
-    resources :main, only: [:index, :create]
+    resources :main, only: [:index]
   end
 
   devise_scope :user do
