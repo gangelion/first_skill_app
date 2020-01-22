@@ -7,7 +7,10 @@ class DeviseCreateMentors < ActiveRecord::Migration[5.2]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       ## language
-      t.string :language
+      t.string :language, null: false, default: ""
+
+      ## name
+      t.string :name, null: false, default: ""
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
