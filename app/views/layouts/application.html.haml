@@ -11,7 +11,7 @@
     = javascript_include_tag 'application'
     
   %body
-    %nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
+    %nav.navbar.navbar-expand-md.navbar-dark.bg-dark
       - unless user_signed_in? || mentor_signed_in?
         %a.navbar-brand{href: root_path} First Skill App
       - else
@@ -23,10 +23,6 @@
               %a.nav-link{href: mentors_main_index_path}
                 Home
                 %span.sr-only (current)
-            -# %li.nav-item
-            -#   %a.nav-link{href: "#"} Link
-            -# %li.nav-item
-            -#   %a.nav-link.disabled{"aria-disabled" => "true", href: "#", tabindex: "-1"} Disabled
             %li.nav-item.dropdown
               %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "#"} ステータス
               .dropdown-menu{"aria-labelledby" => "dropdown01"}
@@ -37,7 +33,6 @@
             %input.form-control.mr-sm-2{"aria-label" => "Search", placeholder: "Search", type: "text"}/
             %button.btn.btn-outline-info.my-2.my-sm-0{type: "submit"} Search
             %a.mx-5{href: destroy_user_session_path, class: "log_out"} ログアウト
-
     = yield
     %footer 
       .footer__left
