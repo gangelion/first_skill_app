@@ -54,7 +54,10 @@
     .container
       %h1.display-4.my-4.text-center.font-weight-bold.text-info
         = "#{@mentor_selects[0].language}が得意なメンター"
+      
   .container
+    .font-weight-bold.px-5
+      = "#{@mentor_selects.length}人のメンターがみつかりました。"
     / Example row of columns
     .row
       .col-12
