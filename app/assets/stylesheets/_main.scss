@@ -4,11 +4,11 @@
   margin: 0 auto;
 
   &__left {
-    background-color: yellowgreen;
+    background-color: rgb(230, 230, 230);
     width: 300px;
   }
   &__right {
-    background-color: aquamarine;
+    background-color: whitesmoke;
     height: 700px;
     width: 100vw;
     .header_text {
@@ -42,7 +42,7 @@
         }
       }
     .active {
-        background-color: red;
+        background-color: aqua;
     }
   }
     &_btn {
