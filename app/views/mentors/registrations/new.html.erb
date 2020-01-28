@@ -6,12 +6,12 @@
 
   <div class="field text-center pt-5">
     <%= f.label :お名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "rounded form-control-lg", placeholder: "お名前" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "rounded form-control-lg", placeholder: "メンタ太郎" %>
   </div>
 
   <div class="field text-center mt-2">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded form-control-lg", placeholder: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded form-control-lg", placeholder: "sample@mail.com" %>
   </div>
 
   <div class="field text-center mt-3">
@@ -24,7 +24,7 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "rounded form-control-lg", placeholder: "password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "rounded form-control-lg"%>
   </div>
 
   <div class="field text-center mt-3 mb-5">
@@ -33,7 +33,7 @@
   </div>
 
   <div class="actions text-center mt-3">
-    <%= f.submit "Sign up", class: "col-5 rounded btn btn-primary" %>
+    <%= f.submit "Sign up", class: "col-5 rounded btn btn-info" %>
   </div>
 <% end %>
 
