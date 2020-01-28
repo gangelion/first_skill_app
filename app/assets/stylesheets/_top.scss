@@ -10,7 +10,7 @@
     color: #13b1c0;
   }
   &__view { 
-    background-color: red;
+    background-color: white;
     width: calc(100vw - 200px);
     margin: 0 auto;
     display: flex;
@@ -59,12 +59,5 @@
         width: 100%;
       }
     } 
-  }
-  .btn__under_wrapper {
-    justify-content: center;
-    text-align: center;
-    .btn {
-      margin:0 100px;
-    }
   }
 }
