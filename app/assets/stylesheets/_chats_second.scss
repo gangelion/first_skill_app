@@ -1,5 +1,5 @@
 .chatheader {
-  background-color: orange;
+  background-color: gray;
   height: 50px;
   line-height: 50px;
   padding: 0 30px;
@@ -8,7 +8,7 @@
 .chatmain {
   display: flex;
   .video {
-    background-color: aquamarine;
+    background-color: gainsboro;
     height: calc(100vh - 50px);
     width: 50%;
     position: relative;
@@ -24,25 +24,25 @@
     }
   }
   .chats {
-    background-color: cornflowerblue;
+    background-color: white;
     height: calc(100vh - 130px);
     width: 50%;
     position: relative;
     overflow: auto;
     &__message_user {
-      background-color: burlywood;
+      background-color: white;
       padding: 20px;
       .message {
         padding: 10px;
-        background-color: white;
+        background-color: whitesmoke;
         .message_time {
-          background-color: cyan;
+          background-color: whitesmoke;
         }
       }
     }
     .chat__text_box {
       position: absolute;
-      background-color: plum;
+      background-color: whitesmoke;
       height: 80px;
       width: 100%;
       bottom: 0;
