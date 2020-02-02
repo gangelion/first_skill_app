@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: first_skill_app_production
-  username: first_skill_app
-  password: <%= ENV['FIRST_SKILL_APP_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
