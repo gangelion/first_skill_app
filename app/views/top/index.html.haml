@@ -1,28 +1,47 @@
-%main.main
-  .main__view
-    .intro
-      %h1.text プログラミングの
-      %h1 先輩メンターに
-      %h1 相談しよう
-      %p  testtesttesttesttesttesttesttesttesttesttest
-      testtesttesttesttesttesttesttesttesttesttest
-      testtesttesttesttesttesttesttesttesttesttesttesttesttesttest
-    .main__view_content
-      .content_image 
-        = image_tag "https://cdn.pixabay.com/photo/2018/09/15/13/28/trainer-3679422_1280.jpg", alt: "test", class: "main_image"
-  .btn__wrapper
-    .mentor
-      .mentor__box
-        = image_tag "https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg", alt: "test", class: "mentorimg"
-        %button.btn.btn-info.btn-lg.mb-3{type: "button", onclick: "location.href='#{new_mentor_registration_path}'"} メンターになる
-    .user
-      .user__box
-        = image_tag "https://cdn.pixabay.com/photo/2019/08/14/09/53/consulting-4405260__480.jpg", alt: "test", class: "userimg"
-        %button.btn.btn-info.btn-lg.mb-3{type: "button", onclick: "location.href='#{new_user_registration_path}'"} ユーザーになる
-  .main__content
+%main.main.container.mt-5
+  .main__view.d-flex.justify-content-start.row
+    .intro.col-lg-6
+      %h1.text.text-info.display-4 プログラミングの
+      .text-info.display-4 先輩メンターに
+      .text-info.display-4 相談しよう
+      %p.col-6  プログラミングは難しいと諦めていませんか？
+      %p.col-6 あなたと共に歩みを進めるメンターがいます！まずは登録してみましょう！
+      .btn.btn-info.btn-lg.my-5.mx-auto.d-block{type: "button", onclick: "location.href='#{new_user_registration_path}'", style: "width:300px;"} ユーザー登録をする
+
+    .main__view_content.col-lg-6
+      .content_image.d-flex
+        %image.img-fluid.main_image.img-thumbnail{src: "https://cdn.pixabay.com/photo/2018/09/15/13/28/trainer-3679422_1280.jpg", alt: "main_image"}
+  .btn__wrapper.row
+    .user.container
+      .user__box.row.mt-5
+        .col-4.text-center
+          %i.fas.fa-globe-asia.text-info.display-4
+          .icon_title.text-info オンラインを利用
+          %p.mb-5 オンラインによる形式なのでいつでもどこでもプログラミングが学べます。
+        .col-4.text-center
+          %i.fas.fa-chalkboard-teacher.text-info.display-4
+          .icon_title.text-info 個別指導
+          %p.mb-5 １対１でのやりとりですので個人にあった形式で指導を受けることができます。
+        .col-4.text-center
+          %i.fas.fa-yen-sign.text-info.display-4
+          .icon_title.text-info リーズナブル
+          %p.mb-5 メンターと直接契約ですのでリーズナブルに指導を受けることができます。
+        
+  .main__content.row
     .main__under_content
-      .under_content_image
-        = image_tag "https://cdn.pixabay.com/photo/2018/09/15/13/28/trainer-3679422_1280.jpg", alt: "test", class: "under_image" 
-    
+      .review__box.row.mt-5
+        .col-4.text-center
+          = "#{}さんのレビュー"
+          .image_title テスト
+          %p テストテストテストテストテストテストテストテストテストテストテスト  
+        .col-4.text-center
+          = "#{}さんのレビュー"
+          .image_title テスト
+          %p テストテストテストテストテストテストテストテストテストテストテスト  
+        .col-4.text-center
+          = "#{}さんのレビュー"
+          .image_title テスト
+          %p テストテストテストテストテストテストテストテストテストテストテスト  
+        .btn.btn-info.btn-lg.mx-auto.mb-5.mt-5.d-block{type: "button", onclick: "location.href='#{new_user_registration_path}'", style: "width:400px;"} ユーザー登録をする
 
 
