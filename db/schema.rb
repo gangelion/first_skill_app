@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_20_114735) do
+ActiveRecord::Schema.define(version: 2020_02_26_054627) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2020_01_20_114735) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mentors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "title", null: false
+    t.text "description", null: false
+    t.string "plan_image", null: false
+    t.integer "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,8 +40,10 @@ ActiveRecord::Schema.define(version: 2020_01_20_114735) do
 
   create_table "user_mentors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "mentor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["mentor_id"], name: "index_user_mentors_on_mentor_id"
     t.index ["user_id"], name: "index_user_mentors_on_user_id"
   end
 
@@ -49,5 +60,6 @@ ActiveRecord::Schema.define(version: 2020_01_20_114735) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "user_mentors", "mentors"
   add_foreign_key "user_mentors", "users"
 end
