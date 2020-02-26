@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_20_114735) do
+ActiveRecord::Schema.define(version: 2020_02_26_054627) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
@@ -25,17 +25,12 @@ ActiveRecord::Schema.define(version: 2020_01_20_114735) do
   end
 
   create_table "mentors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "language", default: "", null: false
-    t.string "name", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.text "title", null: false
+    t.text "description", null: false
+    t.string "plan_image", null: false
+    t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_mentors_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_mentors_on_reset_password_token", unique: true
   end
 
   create_table "tops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

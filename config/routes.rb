@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :mentors, controllers: {
-  sessions:      'mentors/sessions',
-  passwords:     'mentors/passwords',
-  registrations: 'mentors/registrations'
-}
 devise_for :users, controllers: {
   sessions:      'users/sessions',
   passwords:     'users/passwords',
@@ -22,4 +17,5 @@ devise_for :users, controllers: {
   end
 
   root to: 'top#index'
+  get 'top', to: 'top#mentor_top'
 end
