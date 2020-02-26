@@ -6,25 +6,11 @@
 @import "font-awesome";
 @import "mentors/main";
 
-.log_out {
-  color: darkturquoise;
-}
-footer {
-  padding: 50px 200px;
-  width: 100vw;
-  background-color: whitesmoke;
-  display: flex;
-  .footer__left {
-    margin-right: 50px;
 
-  }
-  .footer__right {
-    margin-right: 50px;
-  }
-  small {
-    padding: 150px 0 0 400px;
-  }
+.log_out {
+  color: whitesmoke;
 }
+
 
 // registration
 .new_mentor {
@@ -35,4 +21,14 @@ footer {
 }
 .field {
   font-size: 1.5rem;
+}
+.registered_user_link {
+  background-color: whitesmoke;
+}
+
+.registration_link {
+  background-color: whitesmoke
+}
+.forgot_password {
+  background-color: whitesmoke
 }
