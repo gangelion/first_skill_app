@@ -1,6 +1,6 @@
-class CreateMentors < ActiveRecord::Migration[5.2]
+class CreatePlans < ActiveRecord::Migration[5.2]
   def change
-    create_table :mentors do |t|
+    create_table :plans do |t|
       t.text :title, null: false
       t.text :description, null: false
       t.string :plan_image, null: false

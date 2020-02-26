@@ -4,6 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :user_mentors
-  has_many :mentors, through: :user_mentors
+  has_many :plans
 end
