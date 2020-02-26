@@ -1,10 +1,7 @@
-<h1>ユーザー</h1>
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <i class="fas fa-file-signature"></i>
-  <div class="field text-center pt-5">
+  <i class="fas fa-file-signature h1 d-block text-center pt-5"></i>
+  <div class="field text-center pt-3">
     <%= f.label "お名前" %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "rounded form-control-lg", placeholder: "メンタ太郎" %>
   </div>
@@ -28,7 +25,7 @@
   </div>
 
   <div class="actions text-center">
-    <%= f.submit "Sign up", class: "col-4 btn btn-info rounded" %>
+    <%= f.submit "Sign up", class: "col-3 btn btn-info rounded" %>
   </div>
 <% end %>
 

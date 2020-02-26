@@ -1,16 +1,19 @@
 %main.main.container.mt-5
   .main__view.d-flex.justify-content-start.row
-    .intro.col-lg-6
-      %h1.text.text-info.display-4 プログラミングの
-      .text-info.display-4 先輩メンターに
-      .text-info.display-4 相談しよう
+    .intro.col-lg-6.mb-5
+      %h1.text.text-info.display-4.font-weight-bold プログラミングの
+      .text-info.display-4.font-weight-bold 先輩メンターに
+      .text-info.display-4.font-weight-bold 相談しよう
       %p.col-6  プログラミングは難しいと諦めていませんか？
       %p.col-6 あなたと共に歩みを進めるメンターがいます！まずは登録してみましょう！
-      .btn.btn-info.btn-lg.my-5.mx-auto.d-block{type: "button", onclick: "location.href='#{new_user_registration_path}'", style: "width:300px;"} ユーザー登録をする
+      .btn.btn-info.btn-lg.mt-5.mx-auto.d-block{type: "button", onclick: "location.href='#{new_user_registration_path}'", style: "width:300px;"} 
+        ユーザー登録をする
+      .mentor_registration.text-center.d-block.mt-4.mb-5
+        = link_to "メンターになりたい方はこちら"
 
-    .main__view_content.col-lg-6
+    .main__view_content.col-lg-6.mb-5
       .content_image.d-flex
-        %image.img-fluid.main_image.img-thumbnail{src: "https://cdn.pixabay.com/photo/2018/09/15/13/28/trainer-3679422_1280.jpg", alt: "main_image"}
+        %image.img-fluid.main_image{src: "https://cdn.pixabay.com/photo/2017/10/28/00/23/mentor-icon-2895941__480.png", alt: "main_image"}
   .btn__wrapper.row
     .user.container
       .user__box.row.mt-5
