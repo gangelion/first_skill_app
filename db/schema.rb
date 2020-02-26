@@ -24,20 +24,6 @@ ActiveRecord::Schema.define(version: 2020_01_20_114735) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "mentors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "language", default: "", null: false
-    t.string "name", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_mentors_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_mentors_on_reset_password_token", unique: true
-  end
-
   create_table "tops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,10 +31,8 @@ ActiveRecord::Schema.define(version: 2020_01_20_114735) do
 
   create_table "user_mentors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "mentor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["mentor_id"], name: "index_user_mentors_on_mentor_id"
     t.index ["user_id"], name: "index_user_mentors_on_user_id"
   end
 
@@ -65,6 +49,5 @@ ActiveRecord::Schema.define(version: 2020_01_20_114735) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "user_mentors", "mentors"
   add_foreign_key "user_mentors", "users"
 end
