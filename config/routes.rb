@@ -17,4 +17,5 @@ devise_for :users, controllers: {
   end
 
   root to: 'top#index'
+  get 'top', to: 'top#mentor_top'
 end
