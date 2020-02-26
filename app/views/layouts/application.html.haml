@@ -10,9 +10,9 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     
-  %body
+  %body.bg-light
     %nav.navbar.navbar-expand-md.navbar-dark.bg-info
-      - unless user_signed_in? || mentor_signed_in?
+      - unless user_signed_in?
         %a.navbar-brand{href: root_path} First Skill App
       - else
         %button.navbar-toggler{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", type: "button"}
@@ -34,7 +34,7 @@
             %button.btn.btn-outline-info.my-2.my-sm-0{type: "submit"} Search
             %a.mx-5{href: destroy_user_session_path, class: "log_out"} ログアウト
     = yield
-    %footer.d-flex.justify-content-start 
+    %footer.d-flex.justify-content-start.bg-white 
       .footer__left.container.text-center.my-5
         %ul
           %li メンタ
@@ -49,7 +49,7 @@
           %li test
           %li test
           %li test
-    %small.text-center.d-block.mb-3 &copy; 2020 tetsuya kojima
+    %small.text-center.d-block.mb-3.bg-white &copy; 2020 tetsuya kojima
 
     %script{crossorigin: "anonymous", integrity: "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo", src: "https://code.jquery.com/jquery-3.3.1.slim.min.js"}
     %script{crossorigin: "anonymous", integrity: "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1", src: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"}

@@ -6,7 +6,7 @@ devise_for :users, controllers: {
 }
   resources :main, only: [:index, :show]
   resources :chats, only: [:index, :create]
-  resources :mentor_select, only: [:index, :show]
+  resources :plans, only: [:new, :create]
   
   namespace :mentors do
     resources :main, only: [:index]

@@ -12,12 +12,12 @@
           hogehogehoge
       -# dash_content-right
       %li
-        = link_to "メンタープランの登録はこちら"
+        = link_to "メンタープランの登録はこちら", new_plan_path
 
   .dash_content__right
     .header_text
       学べる言語一覧
-    = form_with(url: mentor_select_index_path, method: :get, local: true) do |f|
+    = form_with(url: "#", method: :get, local: true) do |f|
       .language   
         .language__content
           = f.label "language_htmlcss", "HTML/CSS"
