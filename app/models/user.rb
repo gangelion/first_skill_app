@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :plans
+  has_many :users_plans
+  # has_many :buy_plans, through: :users_plans, source: :plan
 end

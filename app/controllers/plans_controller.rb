@@ -5,6 +5,7 @@ class PlansController < ApplicationController
 
   def create
    plan = Plan.new(plan_params)
+   plan.user_id = current_user.id
     if plan.save
       redirect_to main_index_path
     else
@@ -17,5 +18,5 @@ end
 private
 
 def plan_params
-  params.require(:plan).permit(:title, :description, :plan_image, :price)
+  params.require(:plan).permit(:title, :description, :plan_image, :price, :user_id)
 end
