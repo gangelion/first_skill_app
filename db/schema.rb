@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_062127) do
+ActiveRecord::Schema.define(version: 2020_02_26_231850) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 2020_02_26_062127) do
     t.text "description", null: false
     t.string "plan_image", null: false
     t.integer "price", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "tops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -51,4 +53,16 @@ ActiveRecord::Schema.define(version: 2020_02_26_062127) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "plan_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plan_id"], name: "index_users_plans_on_plan_id"
+    t.index ["user_id"], name: "index_users_plans_on_user_id"
+  end
+
+  add_foreign_key "plans", "users"
+  add_foreign_key "users_plans", "plans"
+  add_foreign_key "users_plans", "users"
 end
