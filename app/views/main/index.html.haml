@@ -1,48 +1,56 @@
-.dash_content
-  .dash_content__left
-    %ul.dash_content__sidemenu
-      %li
-        %a.active{href: ""}
-          hogehogehoge
-      %li
-        %a.active{href: ""}
-          hogehogehoge
-      %li
-        %a.active{href: ""}
-          hogehogehoge
-      -# dash_content-right
-      %li
-        = link_to "メンタープランの登録はこちら", new_plan_path
+.container
+  .row
+    .col-12.bg-light{style: "height: 50px;"}
+    
+    = render 'layouts/sidebar'
+    
+    .col-9.bg-light
+      .col-12.bg-white.mb-3.d-flex.align-items-center{style: "height: 80px;"} ここには運営からのnewsが表示されます。
+      .col-12.bg-white.mb-3{style: "height: 220px;"} slickで情報を流します。
+      .col-12.bg-white.mb-3{style: "height: 250px;"} 詳細ページ
+      .col-12.bg-white.mb-3{style: "height: 300px;"} plan
+      .col-12.bg-white.mb-3.d-flex.text-center.align-items-center{style: "height: 100px;"} 
+        = link_to "HTML/CSS", "#", class: "col-3"
+        = link_to "Ruby", "#", class: "col-3"
+        = link_to "Javascript", "#", class: "col-3"
+        = link_to "Python", "#", class: "col-3"
+      .col-12.bg-white.mb-3.d-flex.text-center.align-items-center{style: "height: 100px;"}
+        = link_to "Go", "#", class: "col-3"
+        = link_to "PHP", "#", class: "col-3"
+        = link_to "Java", "#", class: "col-3"
+        = link_to "Kotlin", "#", class: "col-3"
+      .col-12.bg-white.mb-3{style: "height: 500px;"} timeline
+    .col-12.bg-light{style: "height: 50px;"} 
 
-  .dash_content__right
-    .header_text
-      学べる言語一覧
-    = form_with(url: "#", method: :get, local: true) do |f|
-      .language   
-        .language__content
-          = f.label "language_htmlcss", "HTML/CSS"
-          = f.radio_button :language, "HTML/CSS", class: "language__content_button"
-        .language__content
-          = f.label "language_ruby", "Ruby" 
-          = f.radio_button :language, "Ruby", class: "language__content_button"
-        .language__content
-          = f.label "language_javascript", "Javascript" 
-          = f.radio_button :language, "Javascript", class: "language__content_button"
-        .language__content
-          = f.label "language_python", "Python" 
-          = f.radio_button :language, "Python", class: "language__content_button"
-      .language 
-        .language__content
-          = f.label "language_go", "Go" 
-          = f.radio_button :language, "Go", class: "language__content_button"
-        .language__content
-          = f.label "language_php", "PHP" 
-          = f.radio_button :language, "PHP", class: "language__content_button"
-        .language__content
-          = f.label "language_java", "Java" 
-          = f.radio_button :language, "Java", class: "language__content_button"
-        .language__content
-          = f.label "language_kotlin", "Kotlin" 
-          = f.radio_button :language, "Kotlin", class: "language__content_button"
-      .dash_content__right_btn
-        = f.submit "メンターを探す", disabled: true, class: "submit_button"
+
+
+      -#   学べる言語一覧
+      -# = form_with(url: "#", method: :get, local: true) do |f|
+      -#   .language   
+      -#     .language__content
+      -#       = f.label "language_htmlcss", "HTML/CSS"
+      -#       = f.radio_button :language, "HTML/CSS", class: "language__content_button"
+      -#     .language__content
+      -#       = f.label "language_ruby", "Ruby" 
+      -#       = f.radio_button :language, "Ruby", class: "language__content_button"
+      -#     .language__content
+      -#       = f.label "language_javascript", "Javascript" 
+      -#       = f.radio_button :language, "Javascript", class: "language__content_button"
+      -#     .language__content
+      -#       = f.label "language_python", "Python" 
+      -#       = f.radio_button :language, "Python", class: "language__content_button"
+      -#   .language 
+      -#     .language__content
+      -#       = f.label "language_go", "Go" 
+      -#       = f.radio_button :language, "Go", class: "language__content_button"
+      -#     .language__content
+      -#       = f.label "language_php", "PHP" 
+      -#       = f.radio_button :language, "PHP", class: "language__content_button"
+      -#     .language__content
+      -#       = f.label "language_java", "Java" 
+      -#       = f.radio_button :language, "Java", class: "language__content_button"
+      -#     .language__content
+      -#       = f.label "language_kotlin", "Kotlin" 
+      -#       = f.radio_button :language, "Kotlin", class: "language__content_button"
+      -#   .dash_content__right_btn
+      -#     = f.submit "メンターを探す", disabled: true, class: "submit_button"
