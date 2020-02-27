@@ -1,6 +1,7 @@
 class PlansController < ApplicationController
   def new
     @plan = Plan.new
+    @plan.skills.build
   end
 
   def create
@@ -18,5 +19,5 @@ end
 private
 
 def plan_params
-  params.require(:plan).permit(:title, :description, :plan_image, :price, :user_id)
+  params.require(:plan).permit(:title, :description, :plan_image, :price, :user_id, skill_ids: [])
 end

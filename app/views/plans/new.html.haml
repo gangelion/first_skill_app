@@ -18,6 +18,14 @@
               .h3 プラン画像
               .image_description.text-muted イメージ画像を掲載しましょう！
               = f.file_field :plan_image
+          .form-group.col-12
+            .h3 タグ
+            .title_btn
+              = f.collection_check_boxes(:skill_ids, Skill.all, :id, :skill_set, class: "form-control") do |skill|
+                = skill.check_box
+                = skill.text
+              .title_description.text-danger 登録すると検索されやすくなるため成約率が上がります！
+              .title_description.mb-3.text-muted 最大5件まで登録できます 例）Ruby PHP
           .form-group.col-12 
             .h3 プラン
             .plan_description.text-muted プラン内容は2,000文字以内。

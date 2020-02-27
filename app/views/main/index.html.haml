@@ -1,7 +1,7 @@
 .container
   .row
     .col-12.bg-light{style: "height: 50px;"}
-    
+
     = render 'layouts/sidebar'
     
     .col-9.bg-light
@@ -9,16 +9,33 @@
       .col-12.bg-white.mb-3{style: "height: 220px;"} slickで情報を流します。
       .col-12.bg-white.mb-3{style: "height: 250px;"} 詳細ページ
       .col-12.bg-white.mb-3{style: "height: 300px;"} plan
-      .col-12.bg-white.mb-3.d-flex.text-center.align-items-center{style: "height: 100px;"} 
-        = link_to "HTML/CSS", "#", class: "col-3"
-        = link_to "Ruby", "#", class: "col-3"
-        = link_to "Javascript", "#", class: "col-3"
-        = link_to "Python", "#", class: "col-3"
-      .col-12.bg-white.mb-3.d-flex.text-center.align-items-center{style: "height: 100px;"}
-        = link_to "Go", "#", class: "col-3"
-        = link_to "PHP", "#", class: "col-3"
-        = link_to "Java", "#", class: "col-3"
-        = link_to "Kotlin", "#", class: "col-3"
+      .col-12.bg-white.mb-3.d-flex.text-center.align-items-center.h5{style: "height: 100px;"} 
+        .col-3
+          %i.far.fa-file-code.text-info
+          = link_to "HTML/CSS", "#", class: "text-decoration-none text-dark"
+        .col-3
+          %i.far.fa-gem.text-info
+          = link_to "Ruby", "#", class: "text-decoration-none text-dark"
+        .col-3
+          %i.fab.fa-js.text-info
+          = link_to "JavaScript", "#", class: "text-decoration-none text-dark"
+        .col-3
+          %i.fab.fa-python.text-info
+          = link_to "Python", "#", class: "text-decoration-none text-dark"
+      .col-12.bg-white.mb-3.d-flex.text-center.align-items-center.h5{style: "height: 100px;"}
+        .col-3
+          %i.fab.fa-php.text-info
+          = link_to "PHP", "#", class: "text-decoration-none text-dark"
+        .col-3
+          %i.fab.fa-java.text-info
+          = link_to "Java", "#", class: "text-decoration-none text-dark"
+        .col-3
+          %i.fas.fa-database.text-info
+          = link_to "SQL", "#", class: "text-decoration-none text-dark"
+        .col-3
+          %i.fas.fa-laptop-code.text-info
+          = link_to "その他", "#", class: "text-decoration-none text-dark"
+        
       .col-12.bg-white.mb-3{style: "height: 500px;"} timeline
     .col-12.bg-light{style: "height: 50px;"} 
 
