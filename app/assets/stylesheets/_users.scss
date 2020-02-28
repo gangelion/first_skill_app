@@ -3,5 +3,5 @@
 }
 .skill__btn:hover {
   opacity: 0.5;
-  font-weight: 700;
+  @extend .link_style;
 }

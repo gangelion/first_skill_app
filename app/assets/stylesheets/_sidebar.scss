@@ -3,5 +3,5 @@
 }
 .side__menu:hover {
   color: $main-color;
-  font-weight: 700;
+  @extend .link_style;
 }

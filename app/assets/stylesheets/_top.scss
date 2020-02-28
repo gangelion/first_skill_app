@@ -1,0 +1,7 @@
+.mentor__top_link {
+  color: $main-color;
+}
+.mentor__top_link:hover {
+  color: $main-color;
+  @extend .link_style;
+}

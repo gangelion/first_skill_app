@@ -1,39 +1,58 @@
 @import "reset";
 @import "variables";
 @import "top";
-@import "main";
 @import "chats_second";
 @import 'font-awesome-sprockets';
 @import "font-awesome";
 @import "mentors/main";
 @import "sidebar";
 @import "users";
+@import "devise";
 
 
 
+.app__title {
+  color: $second-color;
+}
+.app__title:hover {
+  color: $second-color;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.home__btn {
+  color: $second-color;
+  font-size: 20px;
+}
+.home__btn:hover {
+  color: $second-color;
+  @extend .link_style;
+}
 
 .log_out {
-  color: whitesmoke;
+  color: $second-color;
+  margin: 0 50px;
+}
+.log_out:hover {
+  color: $second-color;
+  @extend .link_style;
 }
 
 
 // registration
-.new_mentor {
-  background-color: whitesmoke
-}
 .new_user {
-  background-color: whitesmoke;
+  background-color: $second-color;
 }
 .field {
   font-size: 1.5rem;
 }
 .registered_user_link {
-  background-color: whitesmoke;
+  background-color: $second-color;
 }
 
 .registration_link {
-  background-color: whitesmoke
+  background-color: $second-color
 }
 .forgot_password {
-  background-color: whitesmoke
+  background-color: $second-color
 }
