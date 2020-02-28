@@ -1,0 +1,23 @@
+.login_link {
+  color: $main_color;
+}
+.login_link:hover {
+  color: $main_color;
+  @extend .link_style;
+}
+
+.user__registration_link {
+  color: $main_color;
+}
+.user__registration_link:hover {
+  color: $main_color;
+  @extend .link_style;
+}
+
+.forgot__password_link {
+  color: $main_color;
+}
+.forgot__password_link:hover {
+  color: $main_color;
+  @extend .link_style;
+}
