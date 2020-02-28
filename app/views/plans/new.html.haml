@@ -9,7 +9,10 @@
           .mb-5.col-12 プランを登録するとメンターとして掲載されます。
         .row.bg-white 
           .form-group.col-12
-            .h3 タイトル
+            .h4 
+              タイトル
+              %span.text-muted.h6 （10文字以上80文字以下）
+
             .title_description.text-muted 提供できる内容をわかりやすく記載しましょう！
             .title_btn
               = f.text_field :title, placeholder: "初心者サポートします！", class: "form-control"
@@ -29,7 +32,7 @@
           .form-group.col-12 
             .h3 プラン
             .plan_description.text-muted プラン内容は2,000文字以内。
-            = f.text_area :description, placeholder: "プラン内容を記入して下さい", class: "form-control", id: "exampleFormControlTextarea1", rows: "3"
+            = f.text_area :description, placeholder: "プラン内容を記入して下さい", class: "form-control", id: "exampleFormControlTextarea1", rows: "12"
           .form-group.col-4 
             .h3 金額
             = f.text_field :price, placeholder: "10,000", class: "form-control"

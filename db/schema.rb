@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_085359) do
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
-    t.string "plan_image", null: false
+    t.string "plan_image"
     t.integer "price", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
