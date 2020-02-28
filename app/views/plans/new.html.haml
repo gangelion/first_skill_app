@@ -8,7 +8,7 @@
           .h2.text-info メンタープラン登録
           .mb-5.col-12 プランを登録するとメンターとして掲載されます。
         .row.bg-white 
-          .form-group.col-12
+          .form-group.col-12.mt-4
             .h4 
               タイトル
               %span.text-muted.h6 （10文字以上80文字以下）
@@ -17,10 +17,14 @@
             .title_btn
               = f.text_field :title, placeholder: "初心者サポートします！", class: "form-control"
           .form-group.col-12 
-            %label{for: "plan_plan_image"} 
-              .h3 プラン画像
-              .image_description.text-muted イメージ画像を掲載しましょう！
-              = f.file_field :plan_image
+            .h3 プラン画像
+            .image_description.text-muted 
+              イメージ画像を掲載しましょう！
+            %label{for: "plan_plan_image"}
+              .upload__back.bg-light{style: "width: 830px; height: 200px;"}
+                %i.far.fa-image.mx-3.my-3
+                  クリックしてイメージ画像を選択
+                = f.file_field :plan_image, class: "d-none"
           .form-group.col-12
             .h3 タグ
             .title_btn

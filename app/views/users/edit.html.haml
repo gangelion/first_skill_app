@@ -12,11 +12,15 @@
               %span.text-muted.h6 （20字以内）
             .user_name.text-muted 
               = f.text_field :name, class: "form-control"
-          .form-group.col-12 
-            %label{for: "user_image_icon"} 
-              .h3 イメージアイコン
-              .image_icon.text-muted あなたをイメージさせるような画像を掲載しましょう！
-              = f.file_field :image_icon
+          .form-group.col-12
+            .h3 イメージアイコン
+            .image_icon.text-muted 
+              あなたをイメージさせるような画像を掲載しましょう！
+            %label{for: "user_image_icon"}
+              .upload__back.bg-light{style: "width: 830px; height: 200px;"}
+                %i.far.fa-image.mx-3.my-3
+                  クリックしてイメージ画像を選択
+                = f.file_field :image_icon, class: "d-none"
           -# .form-group.col-12
           -#   .h3 タグ
           -#   .title_btn
