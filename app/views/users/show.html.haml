@@ -1,0 +1,18 @@
+.bg-info.text-white.h2
+  .container.mh-100{style: "height: 100px;"}
+    = "#{@user.name}さん"
+.container
+  .row
+    .col-12 
+    .col-12.d-flex 
+      .col-8.container.bg-white.my-5
+        .row
+          .col-12.font-weight-bold
+            魅力的なプロフィールを作りましょう！
+          .col-12
+            得意なスキル
+            .d-flex.justify-content-end
+              %i.fas.fa-edit
+              = link_to "プロフィールを編集する", "#"
+      .col-4 詳細サブ 
+    .col-12

@@ -2,9 +2,12 @@
   %ul
     %li
       %i.fas.fa-home
-      = link_to "ダッシュボード", main_index_path
+      = link_to "ダッシュボード", users_path
     %li
       %i.far.fa-address-card
-      = link_to "プロフィール", "#"
+      = link_to "プロフィール", user_path(current_user.id)
+    %li
+      %i.fas.fa-user-cog
+      = link_to "設定", "#"
     %li
       = link_to "メンタープランの登録はこちら", new_plan_path

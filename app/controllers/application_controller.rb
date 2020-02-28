@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if user_signed_in?
-      main_index_path
+      users_path
     else
-      mentors_main_index_path
+      root_path
     end
   end
   
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   protected
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :language])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     end
 
     def production?

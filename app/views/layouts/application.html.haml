@@ -20,7 +20,7 @@
         #navbarsExampleDefault.collapse.navbar-collapse
           %ul.navbar-nav.mr-auto
             %li.nav-item.active
-              %a.nav-link{href: main_index_path}
+              %a.nav-link{href: users_path}
                 Home
                 %span.sr-only (current)
             %li.nav-item.dropdown
@@ -32,7 +32,7 @@
           %form.form-inline.my-2.my-lg-0
             %input.form-control.mr-sm-2{"aria-label" => "Search", placeholder: "Search", type: "text"}/
             %button.btn.btn-outline-info.my-2.my-sm-0{type: "submit"} Search
-            %a.mx-5{href: destroy_user_session_path, class: "log_out"} ログアウト
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log_out mx-5"
     = yield
     %footer.d-flex.justify-content-start.bg-white 
       .footer__left.container.text-center.my-5
