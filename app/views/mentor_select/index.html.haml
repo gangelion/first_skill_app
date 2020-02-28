@@ -1,6 +1,6 @@
 .mentor_select
 - if @mentor_selects === [] 
-  = link_to "メイン画面に戻る", "#{main_index_path}"
+  = link_to "メイン画面に戻る", "#{users_path}"
   %main{role: "main"}
   / Main jumbotron for a primary marketing message or call to action
   .jumbotron.bg-light
@@ -47,7 +47,7 @@
 
 
 - else
-  = link_to "メイン画面に戻る", "#{main_index_path}"
+  = link_to "メイン画面に戻る", "#{users_path}"
   %main{role: "main"}
   / Main jumbotron for a primary marketing message or call to action
   .jumbotron.bg-light

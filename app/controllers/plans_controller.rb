@@ -8,7 +8,7 @@ class PlansController < ApplicationController
    plan = Plan.new(plan_params)
    plan.user_id = current_user.id
     if plan.save
-      redirect_to main_index_path
+      redirect_to users_path
     else
       redirect_back(fallback_location: root_path)
     end   
