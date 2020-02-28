@@ -8,6 +8,6 @@
       = link_to "プロフィール", user_path(current_user.id)
     %li
       %i.fas.fa-user-cog
-      = link_to "設定", "#"
+      = link_to "設定", edit_user_path(current_user.id)
     %li
       = link_to "メンタープランの登録はこちら", new_plan_path
