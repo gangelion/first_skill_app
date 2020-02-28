@@ -1,0 +1,34 @@
+.container
+  .row.py-5
+    = render "layouts/sidebar"
+    .col-9
+      = form_with model: @user, local: true do |f|
+        .row
+          .h2.text-info.mb-5 プロフィール
+        .row.bg-white 
+          .form-group.col-6.mt-4
+            .h3 
+              ユーザーネーム
+              %span.text-muted.h6 （20字以内）
+            .user_name.text-muted 
+              = f.text_field :name, class: "form-control"
+          .form-group.col-12 
+            %label{for: "user_image_icon"} 
+              .h3 イメージアイコン
+              .image_icon.text-muted あなたをイメージさせるような画像を掲載しましょう！
+              = f.file_field :image_icon
+          -# .form-group.col-12
+          -#   .h3 タグ
+          -#   .title_btn
+          -#     = f.collection_check_boxes(:skill_ids, Skill.all, :id, :skill_set, class: "form-control") do |skill|
+          -#       = skill.check_box
+          -#       = skill.text
+          -#     .title_description.text-danger 登録すると検索されやすくなるため成約率が上がります！
+          -#     .title_description.mb-3.text-muted 最大5件まで登録できます 例）Ruby PHP
+          .form-group.col-12 
+            .h3 自己紹介
+            .introduce.text-muted 自己紹介は500文字以内で記入してください。
+            = f.text_area :introduce, placeholder: "自己紹介文を記入してください", class: "form-control", id: "exampleFormControlTextarea1", rows: "12"
+        .row.bg-light 
+          .form-group.mx-auto.my-5
+            = f.submit "保存する", class: "btn btn-info btn-lg"

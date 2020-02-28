@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :chats, only: [:index, :create]
   resources :plans, only: [:new, :create]
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :edit, :update]
   
 
   namespace :mentors do

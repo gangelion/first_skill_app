@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :plans
   has_many :users_plans
   # has_many :buy_plans, through: :users_plans, source: :plan
+  
+  validates :name, presence: true
+  validates :name, length: { maximum: 20 }
+  validates :introduce, length: { maximum: 500 }
 end
