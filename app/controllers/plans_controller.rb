@@ -13,11 +13,16 @@ class PlansController < ApplicationController
       redirect_back(fallback_location: root_path)
     end   
   end
+
+  def show
+    @plan = Plan.find(params[:id])
+  end
+
+  private
+  
+  def plan_params
+    params.require(:plan).permit(:title, :description, :plan_image, :price, :user_id, skill_ids: [])
+  end
 end
 
 
-private
-
-def plan_params
-  params.require(:plan).permit(:title, :description, :plan_image, :price, :user_id, skill_ids: [])
-end

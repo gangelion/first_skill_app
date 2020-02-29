@@ -7,9 +7,10 @@
 }
 
 .profile__edit_link {
-  color: $text-color
+  color: $text-color;
 }
 .profile__edit_link:hover {
   @extend .link_style;
   @extend .opacity_style;
 }
+

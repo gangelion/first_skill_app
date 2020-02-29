@@ -1,0 +1,8 @@
+.user__show_link {
+  color: $main-color;
+}
+.user__show_link:hover {
+  color: $main-color;
+  text-decoration: none;
+  @extend .opacity_style;
+}
