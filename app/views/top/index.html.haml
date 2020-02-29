@@ -31,7 +31,7 @@
           .col-md-3.bg-white.mx-3.my-3.shadow{style: "height: 250px;"}
             // plan.userによりplanを持つユーザーをメンターと判定
             = image_tag "#{plan.user.image_icon}", alt: "プロフィール写真", style: "width: 40px; height: 40px; border-radius: 50%; margin: 10px;"
-            = link_to "#{plan.user.name}", "#", class: "profile_link"
+            = link_to "#{plan.user.name}", user_path(plan.user.id), class: "profile_link"
             .col-md-12 
               = link_to "#{plan.title}", plan_path(plan.user.id), class: "plan_title_link"
             .col-md-12.position-absolute.fixed-bottom.mb-2

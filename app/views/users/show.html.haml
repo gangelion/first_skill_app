@@ -11,8 +11,10 @@
             魅力的なプロフィールを作りましょう！
           .col-12
             得意なスキル
-            .d-flex.justify-content-end
-              %i.fas.fa-edit
-              = link_to "プロフィールを編集する", edit_user_path, class: "profile__edit_link"
+          - if user_signed_in? && current_user.id == @user.id
+            .col-12
+              .d-flex.justify-content-end
+                %i.fas.fa-edit
+                = link_to "プロフィールを編集する", edit_user_path, class: "profile__edit_link"
       .col-4 詳細サブ 
     .col-12
