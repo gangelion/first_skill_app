@@ -16,8 +16,8 @@
             .h3 イメージアイコン
             .image_icon.text-muted 
               あなたをイメージさせるような画像を掲載しましょう！
-            %label{for: "user_image_icon"}
-              .upload__back.bg-light{style: "width: 830px; height: 200px;"}
+            %label.col-12{for: "user_image_icon"}
+              .upload__back.bg-light{style: "height: 200px;"}
                 %i.far.fa-image.mx-3.my-3
                   クリックしてイメージ画像を選択
                 = f.file_field :image_icon, class: "d-none"

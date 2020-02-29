@@ -20,8 +20,8 @@
             .h3 プラン画像
             .image_description.text-muted 
               イメージ画像を掲載しましょう！
-            %label{for: "plan_plan_image"}
-              .upload__back.bg-light{style: "width: 830px; height: 200px;"}
+            %label.col-12{for: "plan_plan_image"}
+              .upload__back.bg-light{style: "height: 200px;"}
                 %i.far.fa-image.mx-3.my-3
                   クリックしてイメージ画像を選択
                 = f.file_field :plan_image, class: "d-none"
