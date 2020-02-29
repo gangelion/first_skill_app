@@ -10,7 +10,6 @@
   color: $text-color
 }
 .mentor__plan_registration:hover {
-  color: $text-color;
-  opacity: 0.3;
   @extend .link_style;
+  @extend .opacity_style;
 }

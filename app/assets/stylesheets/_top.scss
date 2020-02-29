@@ -18,7 +18,6 @@
   color: $text-color;
 }
 .plan_title_link:hover {
-  color: $text-color;
   @extend .link_style;
-  opacity: 0.3;
+  @extend .opacity_style;
 }
