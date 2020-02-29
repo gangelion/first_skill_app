@@ -27,7 +27,8 @@
 }
 .home__btn:hover {
   color: $second-color;
-  @extend .link_style;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 .log_out {
