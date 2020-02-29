@@ -13,11 +13,11 @@
 
     .main__view_content.col-lg-6.mb-5
       .content_image.d-flex
-        %image.img-fluid.main_image{src: "https://cdn.pixabay.com/photo/2017/10/28/00/23/mentor-icon-2895941__480.png", alt: "main_image"}
+        = image_tag "https://cdn.pixabay.com/photo/2017/10/28/00/23/mentor-icon-2895941__480.png", class: "img-fluid d-none d-lg-block main_image", alt: ""
   
   .main__content.container
     .main__under_content
-      .h3.text-center.text-info.my-5
+      .h3.text-center.text-info.my-4
         プログラミング言語から探す 
       = render "layouts/skill_btn"
 
@@ -25,32 +25,35 @@
     .main__under_content
       .h3.text-center.text-info.my-5
         新着メンターから探す
-      .mentor__box.row.mt-5
+      .mentor__box.row.mt-5.bg-light.d-flex.justify-content-center
         // planを配列として取得
         - @plans.each do |plan|
-          .col-4.bg-white.mx-1
+          .col-md-3.bg-white.mx-3.my-3.shadow{style: "height: 250px;"}
             // plan.userによりplanを持つユーザーをメンターと判定
-            = image_tag "#{plan.user.image_icon}", style: "width: 40px; height: 40px; border-radius: 50%;"
-            = "#{plan.user.name}"
-            %p テストテストテストテストテストテストテストテストテストテストテスト  
-  
+            = image_tag "#{plan.user.image_icon}", alt: "プロフィール写真", style: "width: 40px; height: 40px; border-radius: 50%; margin: 10px;"
+            = link_to "#{plan.user.name}", "#", class: "profile_link"
+            .col-md-12 
+              = link_to "#{plan.title}", "#", class: "plan_title_link"
+            .col-md-12.position-absolute.fixed-bottom.mb-2
+              = "料金 #{plan.price}円" 
+      .btn.btn-outline-info.btn-lg.mx-auto.my-5.d-block{type: "button", onclick: "location.href='#'", style: "width:400px;"} メンターを探す
         
   .btn__wrapper.row.mt-5
     .user.container
       .user__box.row.mt-5
-        .col-4.text-center
+        .col-md-4.text-center
           %i.fas.fa-globe-asia.text-info.display-4
           .icon_title.text-info オンラインを利用
           %p.mb-5 オンラインによる形式なのでいつでもどこでもプログラミングが学べます。
-        .col-4.text-center
+        .col-md-4.text-center
           %i.fas.fa-chalkboard-teacher.text-info.display-4
           .icon_title.text-info 個別指導
           %p.mb-5 １対１でのやりとりですので個人にあった形式で指導を受けることができます。
-        .col-4.text-center
+        .col-md-4.text-center
           %i.fas.fa-yen-sign.text-info.display-4
           .icon_title.text-info リーズナブル
           %p.mb-5 メンターと直接契約ですのでリーズナブルに指導を受けることができます。
-        .btn.btn-info.btn-lg.mx-auto.mb-5.mt-5.d-block{type: "button", onclick: "location.href='#{new_user_registration_path}'", style: "width:400px;"} ユーザー登録をする
+        .btn.btn-info.btn-lg.mx-auto.my-5.d-block{type: "button", onclick: "location.href='#{new_user_registration_path}'", style: "width:400px;"} ユーザー登録をする
         
 
 

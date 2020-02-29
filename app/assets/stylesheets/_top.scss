@@ -5,3 +5,20 @@
   color: $main-color;
   @extend .link_style;
 }
+
+.profile_link {
+  color: $main-color;
+}
+.profile_link:hover {
+  color: $main-color;
+   @extend .link_style;
+}
+
+.plan_title_link {
+  color: $text-color;
+}
+.plan_title_link:hover {
+  color: $text-color;
+  @extend .link_style;
+  opacity: 0.3;
+}
