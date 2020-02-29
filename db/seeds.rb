@@ -1,5 +1,23 @@
-User.create!(id: 1, name: "test", email: "test@test", password: "11111111", created_at: "2020-01-01", updated_at: "2020-01-10")
-Plan.create!(id: 1, title: "testplantestplan", description: "testdescription", plan_image: "https://cdn.pixabay.com/photo/2017/04/24/11/18/drop-of-water-2256201__480.jpg" , price: 1000, user_id: 1, created_at: "2020-01-01", updated_at: "2020-01-10")
+1.upto(10) do |i|
+  User.create(id: "#{i}",
+              email: "test@#{i}",
+              password: "11111111",
+              name: "test#{i}",
+              image_icon: open("#{Rails.root}/public/uploads/user/image_icon/1/0b7e6270924187aed96a8f8c5ae37c63.jpg"),
+              introduce: "テストプレイ#{i}です"
+            )
+end
+
+1.upto(5) do |i|
+  Plan.create(id: "#{i}",
+              title: "テスト#{i}のタイトルです。",
+              description: "プラン#{i}のテストを記入しました",
+              plan_image: open("#{Rails.root}/public/uploads/plan/plan_image/1/ダウンロード.png"),
+              price: "#{i}000",
+              user_id: "#{i}"
+            )
+end
+
 Skill.create([{ skill_set: "HTML/CSS"},
               { skill_set: "Ruby"},
               { skill_set: "JavaScript"},

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  mount_uploader :image_icon, ImageUploader
+  
   has_many :plans
   has_many :users_plans
   # has_many :buy_plans, through: :users_plans, source: :plan

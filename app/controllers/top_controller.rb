@@ -1,6 +1,6 @@
 class TopController < ApplicationController
   def index
-    render "top/index"
+    @plans = Plan.all.last(3)
   end
 
   def mentor_top
