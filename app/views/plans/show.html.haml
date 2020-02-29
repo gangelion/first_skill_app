@@ -1,0 +1,20 @@
+.container
+  .row.my-5
+    .col-12.d-lg-flex.my-5
+      .col-lg-3.bg-white.shadow.mx-2
+        = image_tag "#{@plan.user.image_icon}", class: "mx-auto d-block my-3", style: "width: 150px; height: 150px; border-radius: 50%;"
+        .h4.text-center
+          = link_to "#{@plan.user.name}", user_path, class: "user__show_link"
+      .col-lg-9.bg-white.shadow.mx-2
+        .h2.my-5.pt-3
+          = "#{@plan.title}"
+        .h2.my-5.text-center.border
+          = image_tag "#{@plan.plan_image}"
+        .text-info
+          プラン説明
+        .h2.my-5
+          = "#{@plan.description}"
+        .text-info
+          自己紹介
+        .h2.my-5.pb-5
+          = "#{@plan.user.introduce}"
