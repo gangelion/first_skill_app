@@ -2,6 +2,14 @@
   color: $text-color;
 }
 .skill__btn:hover {
-  opacity: 0.5;
   @extend .link_style;
+  @extend .opacity_style;
+}
+
+.profile__edit_link {
+  color: $text-color
+}
+.profile__edit_link:hover {
+  @extend .link_style;
+  @extend .opacity_style;
 }
