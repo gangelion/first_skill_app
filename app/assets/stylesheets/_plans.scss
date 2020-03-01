@@ -14,3 +14,12 @@
   color: $main-color;
   @extend .link_style;
 }
+
+.plan__show_link {
+  color: $text-color
+}
+.plan__show_link:hover {
+  color: $text-color;
+  text-decoration: none;
+  @extend .opacity_style;
+}
