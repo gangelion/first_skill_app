@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_action :set_plan_params, only: [:show, :edit, :update]
+  before_action :set_plan_params, only: [:show, :edit, :update, :destroy]
   def index
   end
 
@@ -9,8 +9,8 @@ class PlansController < ApplicationController
   end
 
   def create
-   plan = Plan.new(plan_params)
-   plan.user_id = current_user.id
+    plan = Plan.new(plan_params)
+    plan.user_id = current_user.id
     if plan.save
       redirect_to users_path
     else
@@ -32,7 +32,12 @@ class PlansController < ApplicationController
     end
   end
 
-  def noting 
+  def destroy
+    if @plan.destroy
+      render "plans/destroy"
+    else
+      redierct_back(fallback_location: root_path)
+    end
   end
 
   private
@@ -45,5 +50,3 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
   end
 end
-
-
