@@ -9,17 +9,11 @@
     .col-12.d-flex 
       .col-8.container.bg-white.my-5
         .row.shadow
-          .col-12.font-weight-bold
-            魅力的なプロフィールを作りましょう！
           .col-12
             得意なスキル
-          .col-12
-            // Planを投稿していれば編集へ、投稿していなければ登録を促す画面へ
-            - if user_signed_in? && @plan_user_id == current_user.id
-              = link_to "投稿しているプラン", plans_path, class: "plan__index_link"
-            - elsif user_signed_in? && current_user.id == @user.id
-              = link_to "投稿しているプラン", noting_plan_path, class: "plan__index_link"
           - if user_signed_in? && current_user.id == @user.id
+            .col-12
+              = link_to "投稿しているプラン", plans_path, class: "plan__index_link"
             .col-12
               .d-flex.justify-content-end
                 %i.fas.fa-edit
