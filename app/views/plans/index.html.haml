@@ -1,4 +1,3 @@
-プラン一覧
 .container
   .row
     .col-12.bg-light.d-flex.my-5
@@ -17,6 +16,14 @@
             プランを登録しましょう
           .col-3
             = link_to "登録する", new_plan_path, class: "btn btn-outline-info"
+        .col-12
+          - Plan.all.each do |plan|
+            - if plan.user_id == current_user.id
+              .col-12.bg-white.shadow.mt-3
+                .py-3.text-center
+                  = link_to image_tag("#{plan.plan_image}"), plan_path(plan.id), class: "plan__show_link"
+                .pb-5
+                  = link_to "#{plan.title}", plan_path(plan.id), class: "plan__show_link"
         .col-12.mt-3
       .col-3 
         .col-12.bg-white.shadow.m-2{style: "height: 150px;"}
