@@ -11,4 +11,16 @@
           .form-group.mx-auto.my-5
             = f.submit "保存する", class: "btn btn-info btn-lg" 
           .form-group.mx-auto.my-5
-            = link_to "削除する", plan_path(params[:id]), method: :delete, class: "btn btn-danger btn-lg"
+            .btn.btn-danger.btn-lg(data-toggle="modal" data-target="#modal")
+              削除する
+          .modal.fade#modal(tabindex="-1" role="dialog" aria-labelledby="centerModal" aria-hidden="true")
+            .modal-dialog.modal-dialog-centered{role: "document"}
+              .modal-content
+                .modal-header
+                  本当に削除しますか？
+                %button.close(data-dismiss="modal" aria-label="Close")
+                  %span(aria-hidden="true")
+                .modal-body
+                  削除するボタンを押すと、このプランが削除されます
+                .modal-footer
+                  = link_to "削除する", plan_path(params[:id]), method: :delete, class: "btn btn-danger", data:{dismiss: "modal"}
