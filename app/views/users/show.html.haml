@@ -15,10 +15,10 @@
             得意なスキル
           .col-12
             // Planを投稿していれば編集へ、投稿していなければ登録を促す画面へ
-            - if user_signed_in? && Plan.exists?(current_user.id)
-              = link_to "投稿しているプラン", plan_path, class: "plan__show_link"
+            - if user_signed_in? && @plan_user_id == current_user.id
+              = link_to "投稿しているプラン", plans_path, class: "plan__index_link"
             - elsif user_signed_in? && current_user.id == @user.id
-              = link_to "投稿しているプラン", "#", class: "plan__show_link"
+              = link_to "投稿しているプラン", noting_plan_path, class: "plan__index_link"
           - if user_signed_in? && current_user.id == @user.id
             .col-12
               .d-flex.justify-content-end

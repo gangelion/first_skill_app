@@ -8,11 +8,11 @@
       = link_to "プロフィール", user_path(current_user.id), class: "side__menu"
     %li
       %i.far.fa-comments
-      // Planを投稿していれば編集へ、投稿していなければ登録を促す画面へ
-      - if Plan.exists?(current_user.id)
-        = link_to "投稿したプラン", edit_plan_path(current_user.id), class: "side__menu"
+      // Planを投稿していればプラン一覧へ、投稿していなければ投稿を促す画面へ
+      - if @plan_user_id == current_user.id
+        = link_to "投稿したプラン", plans_path(current_user.id), class: "side__menu"
       - else
-        = link_to "投稿したプラン", "#", class: "side__menu"
+        = link_to "投稿したプラン(仮)", noting_plan_path(current_user.id), class: "side__menu"
     %li
       %i.fas.fa-user-cog
       = link_to "設定", edit_user_path(current_user.id), class: "side__menu"

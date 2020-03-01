@@ -1,5 +1,8 @@
 class PlansController < ApplicationController
   before_action :set_plan_params, only: [:show, :edit, :update]
+  def index
+  end
+
   def new
     @plan = Plan.new
     @plan.skills.build
@@ -27,6 +30,9 @@ class PlansController < ApplicationController
     else
       redierct_back(fallback_location: root_path)
     end
+  end
+
+  def noting 
   end
 
   private

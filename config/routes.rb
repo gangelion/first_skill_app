@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   get 'top', to: 'top#mentor_top'
 
   resources :chats, only: [:index, :create]
-  resources :plans, except: [:index, :destroy]
+  resources :plans, except: [:destroy] do
+    member do
+      get 'noting'
+    end
+  end
   resources :users, only: [:index, :show, :edit, :update]
   
 
