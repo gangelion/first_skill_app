@@ -4,10 +4,9 @@
     = render "layouts/sidebar"
     .col-9
       = form_with model: @plan, local: true do |f|
-        .row.mt-5
-          .h2.text-info メンタープラン登録
-          .mb-5.col-12 プランを登録するとメンターとして掲載されます。
+        .row.my-5
+          .h2.text-info メンタープラン編集
         = render partial: "plan_form", locals: { f: f }
         .row.bg-light 
           .form-group.mx-auto.my-5
-            = f.submit "登録する", class: "btn btn-info btn-lg"
+            = f.submit "保存する", class: "btn btn-info btn-lg"

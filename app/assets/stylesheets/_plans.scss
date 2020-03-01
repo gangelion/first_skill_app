@@ -6,3 +6,11 @@
   text-decoration: none;
   @extend .opacity_style;
 }
+
+.plan__index_link {
+  color: $text-color
+}
+.plan__index_link:hover {
+  color: $main-color;
+  @extend .link_style;
+}
