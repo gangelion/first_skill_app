@@ -14,3 +14,11 @@
   @extend .opacity_style;
 }
 
+.user__delete_confirm {
+  color: $text-color;
+}
+.user__delete_confirm:hover {
+  color: $text-color;
+  @extend .link_style;
+  @extend .opacity_style;
+}

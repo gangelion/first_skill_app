@@ -1,0 +1,25 @@
+.container
+  .row
+    .col-12.h4.text-dark.font-weight-bold.mt-5
+      ＜退会をお考えの方へ＞
+    .col-12.h3.text-info.font-weight-bold.my-5
+      あなたを待っているメンター・メンティがいます！
+    .col-12.h5.text-muted.font-weight-bold.mb-5
+      やり残したことはありませんか？
+      %br プランを登録したり、メンターを探してみましょう！
+    .col-md-9.bg-white.shadow.d-flex.align-items-center.m-2{style: "height: 100px;"}
+      .col-lg-9.h5 
+        プランを登録する
+      .col-lg-3
+        = link_to "プランを登録", new_plan_path, class: "btn btn-outline-info"
+    .col-md-9.bg-white.shadow.d-flex.align-items-center.m-2{style: "height: 100px;"}
+      .col-lg-9.h5
+        メンターを探す
+      .col-lg-3
+        = link_to "メンターを探す", "#", class: "btn btn-outline-info"
+    .col-md-9.text-center.my-5
+      .col-12.my-3
+        本当に退会しますか？
+        %br（ボタンを押すとデータが削除されます）
+      .col-12
+        = link_to "退会する", user_path, method: :delete, class: "btn btn-outline-danger"

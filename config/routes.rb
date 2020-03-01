@@ -4,9 +4,13 @@ Rails.application.routes.draw do
   root to: 'top#index'
   get 'top', to: 'top#mentor_top'
 
-  resources :chats, only: [:index, :create]
   resources :plans
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, except: [:new, :create] do
+    member do 
+      get "delete_confirm"
+    end
+  end
+  resources :chats, only: [:index, :create]
   
 
   namespace :mentors do

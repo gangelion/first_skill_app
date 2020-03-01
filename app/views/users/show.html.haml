@@ -7,8 +7,8 @@
   .row
     .col-12 
     .col-12.d-flex 
-      .col-8.container.bg-white.my-5
-        .row.shadow
+      .col-8.container.my-5
+        .row.bg-white.shadow
           .col-12
             得意なスキル
           - if user_signed_in? && current_user.id == @user.id
@@ -18,5 +18,8 @@
               .d-flex.justify-content-end
                 %i.fas.fa-edit
                 = link_to "プロフィールを編集する", edit_user_path, class: "profile__edit_link"
+        - if user_signed_in? && current_user.id == @user.id  
+          .col-12.my-5.text-center
+            = link_to "退会する", delete_confirm_user_path, class: "user__delete_confirm"
       .col-4 詳細サブ 
     .col-12
