@@ -17,7 +17,7 @@
           .col-3
             = link_to "登録する", new_plan_path, class: "btn btn-outline-info"
         .col-12
-          - Plan.all.each do |plan|
+          - @plans.each do |plan|
             - if plan.user_id == current_user.id
               .col-12.bg-white.shadow.mt-3
                 .py-3.text-center
