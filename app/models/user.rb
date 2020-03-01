@@ -6,8 +6,8 @@ class User < ApplicationRecord
   
   mount_uploader :image_icon, ImageUploader
   
-  has_many :plans
-  has_many :users_plans
+  has_many :plans, dependent: :delete_all
+  has_many :users_plans, dependent: :delete_all
   # has_many :buy_plans, through: :users_plans, source: :plan
   
   validates :name, presence: true

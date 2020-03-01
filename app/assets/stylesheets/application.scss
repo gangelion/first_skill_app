@@ -14,7 +14,6 @@
 
 .app__title {
   color: $second-color;
-  margin: 0 70px;
 }
 .app__title:hover {
   color: $second-color;
@@ -58,4 +57,12 @@
 }
 .forgot_password {
   background-color: $second-color
+}
+
+.fa-robot {
+  transition: 1.0s;
+  transform: rotateZ(0deg);
+}
+.fa-robot:hover {
+  transform: rotateZ(360deg);
 }

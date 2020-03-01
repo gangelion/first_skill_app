@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user_params, only: [:show, :edit, :update]
+  before_action :set_user_params, only: [:show, :edit, :update, :destroy]
   def index
   end
 
@@ -15,6 +15,17 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @user.destroy
+      render "users/destroy"
+    else
+      redierct_back(fallback_location: root_path)
+    end
+  end
+
+  def delete_confirm
   end
 
   private
