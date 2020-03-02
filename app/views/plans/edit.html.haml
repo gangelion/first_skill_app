@@ -6,6 +6,7 @@
       = form_with model: @plan, local: true do |f|
         .row.my-5
           .h2.text-info メンタープラン編集
+        = render partial: "shared/errors", locals: { target: @plan }
         = render partial: "plan_form", locals: { f: f }
         .row.bg-light 
           .form-group.mx-auto.my-5

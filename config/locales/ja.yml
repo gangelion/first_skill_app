@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      plan:
+        title: タイトル
+        description: プランの説明
+        price: 金額
