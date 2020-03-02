@@ -1,12 +1,14 @@
 .row.bg-white.shadow 
   .form-group.col-12.mt-4
-    .h4 
-      タイトル
-      %span.text-muted.h6 （10文字以上80文字以下）
+    .d-flex.align-items-center
+      .h4.mr-2 タイトル
+      .h6.badge.badge-danger 
+        必須
+      %span.text-muted.h6 （10文字以上80文字以内）
 
     .title_description.text-muted 提供できる内容をわかりやすく記載しましょう！
     .title_btn
-      = f.text_field :title, placeholder: "初心者サポートします！", class: "form-control"
+      = f.text_field :title, placeholder: "初心者サポートします！", class: "form-control", required: true, minlength: "10", maxlength: "80"
   .form-group.col-12 
     .h3 プラン画像
     .image_description.text-muted 
@@ -25,10 +27,15 @@
       .title_description.text-danger 登録すると検索されやすくなるため成約率が上がります！
       .title_description.mb-3.text-muted 最大5件まで登録できます 例）Ruby PHP
   .form-group.col-12 
-    .h3 プラン
-    .plan_description.text-muted プラン内容は2,000文字以内。
-    = f.text_area :description, placeholder: "プラン内容を記入して下さい", class: "form-control", id: "exampleFormControlTextarea1", rows: "12"
+    .d-flex.align-items-center
+      .h3.mr-1 プラン説明
+      .h6.badge.badge-danger 必須
+    .plan_description.text-muted 2,000文字以内。
+    = f.text_area :description, placeholder: "プランの説明を記入して下さい", class: "form-control", rows: "12", required: true, maxlength: "2000"
   .form-group.col-4 
-    .h3 金額
-    = f.text_field :price, placeholder: "10,000", class: "form-control"
+    .d-flex.align-items-center
+      .h3.mr-2 金額
+      .h6.badge.badge-danger 必須
+    .h6.text-muted 1,000円以上1,000,000円以下
+    = f.number_field :price, placeholder: "10000", class: "form-control", required: true, min: "1000", max: "1000000"
     %span.float-right 円／月

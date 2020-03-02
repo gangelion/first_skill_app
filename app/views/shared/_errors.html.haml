@@ -1,0 +1,8 @@
+- if target.errors.any?
+  .aleat.alert-danger.p-4.mb-3.shadow
+    .text-danger{role: "alert"}
+      .h4 ＊＊＊ エラー項目があります ＊＊＊
+      %ul
+        - target.errors.full_messages.each do |message|
+          %li
+            = "＊ #{message}"

@@ -5,13 +5,16 @@
       = form_with model: @user, local: true do |f|
         .row
           .h2.text-info.mb-5 プロフィール
+        = render partial: "shared/errors", locals: { target: @user }
         .row.bg-white.shadow 
           .form-group.col-6.mt-4
-            .h3 
-              ユーザーネーム
+            .d-flex.align-items-center
+              .h3.mr-2 ユーザーネーム
+              .h6.badge.badge-danger 
+                必須
               %span.text-muted.h6 （20字以内）
             .user_name.text-muted 
-              = f.text_field :name, class: "form-control"
+              = f.text_field :name, class: "form-control", required: true, maxlength: "20"
           .form-group.col-12
             .h3 イメージアイコン
             .image_icon.text-muted 
@@ -32,7 +35,7 @@
           .form-group.col-12 
             .h3 自己紹介
             .introduce.text-muted 自己紹介は500文字以内で記入してください。
-            = f.text_area :introduce, placeholder: "自己紹介文を記入してください", class: "form-control", id: "exampleFormControlTextarea1", rows: "12"
+            = f.text_area :introduce, placeholder: "自己紹介文を記入してください", class: "form-control", rows: "12", maxlength: "500"
         .row.bg-light 
           .form-group.mx-auto.my-5
             = f.submit "保存する", class: "btn btn-info btn-lg"
