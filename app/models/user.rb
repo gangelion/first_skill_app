@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :users_plans, dependent: :delete_all
   # has_many :buy_plans, through: :users_plans, source: :plan
   
-  validates :name, presence: true
-  validates :name, length: { maximum: 20 }
+  validates :name, presence: true, length: { maximum: 20 }
   validates :introduce, length: { maximum: 500 }
 end
