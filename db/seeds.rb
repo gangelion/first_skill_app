@@ -3,7 +3,7 @@
               email: "test@#{i}",
               password: "11111111",
               name: "test#{i}",
-              image_icon: open("#{Rails.root}/public/uploads/user/image_icon/1/0b7e6270924187aed96a8f8c5ae37c63.jpg"),
+              # image_icon: open("#{Rails.root}/public/uploads/user/image_icon/1/0b7e6270924187aed96a8f8c5ae37c63.jpg"),
               introduce: "テストプレイ#{i}です"
             )
 end
@@ -12,7 +12,7 @@ end
   Plan.create(id: "#{i}",
               title: "テスト#{i}のタイトルです。",
               description: "プラン#{i}のテストを記入しました",
-              plan_image: open("#{Rails.root}/public/uploads/plan/plan_image/1/ダウンロード.png"),
+              # plan_image: open("#{Rails.root}/public/uploads/plan/plan_image/1/ダウンロード.png"),
               price: "#{i}000",
               user_id: "#{i}"
             )
