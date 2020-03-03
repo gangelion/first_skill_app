@@ -4,12 +4,18 @@ Rails.application.routes.draw do
   root to: 'top#index'
   get 'top', to: 'top#mentor_top'
 
-  resources :plans
+  resources :plans do
+    collection do
+      get "all"
+    end
+  end
+
   resources :users, except: [:new, :create] do
     member do 
       get "delete_confirm"
     end
   end
+  resources :skills, only:[:index]
   resources :chats, only: [:index, :create]
   
 

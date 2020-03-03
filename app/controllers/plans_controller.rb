@@ -41,6 +41,10 @@ class PlansController < ApplicationController
     end
   end
 
+  def all
+    @plans = Plan.group(:user_id)
+  end
+
   private
   
   def plan_params
