@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get "delete_confirm"
     end
   end
+  resources :skills, only:[:index]
   resources :chats, only: [:index, :create]
   
 
