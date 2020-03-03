@@ -1,28 +1,28 @@
 .container
   .row.my-5
     .col-12.d-lg-flex.my-5
-      .col-lg-3.bg-white.shadow.mx-2
+      .col-lg-3.bg-white.shadow.mx-2{style: "height: 80vh; overflow: scroll;"}
         = image_tag "#{@plan.user.image_icon}", class: "mx-auto d-block my-3 shadow", style: "width: 150px; height: 150px; border-radius: 50%;"
         .h4.text-center
           = link_to "#{@plan.user.name}", user_path, class: "user__show_link"
         - if user_signed_in? && current_user.id == @plan.user.id
           .text-center.mt-5
             = link_to "プランを編集する", edit_plan_path(params[:id]), class: "btn btn-outline-info"
-      .col-lg-9.bg-white.shadow.mx-2
-        .h2.my-5.pt-3
+      .col-lg-9.bg-white.shadow.mx-2{style: "word-wrap: break-word;"}
+        .h1.my-5.pt-3
           = "#{@plan.title}"
         .h2.my-5.text-center
           = image_tag "#{@plan.plan_image}", class: "shadow"
-        .border.shadow.p-3  
+        .border.p-3.shadow-sm  
           .text-info
             プラン説明
-          .h2.my-5
+          .h2.my-5  
             = "#{@plan.description}"
           .text-info
             金額
           .h5.my-5.pb-5
             = "#{@plan.price} 円／月"
-        .border.shadow.my-3.p-3  
+        .border.my-3.p-3.shadow-sm  
           .text-info
             自己紹介
           .h2.my-5.pb-5
