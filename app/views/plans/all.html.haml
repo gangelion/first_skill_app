@@ -1,0 +1,22 @@
+.container
+  .row
+    .col-xl-3.d-none.d-xl-block
+      .bg-white.my-5.mx-3.px-3.shadow{style: "height: 60vh;"}
+    .col-xl-9
+      .bg-light
+        .h3.my-4.text-info
+          = "メンターをさがす"
+        .col-12  
+          = "#{@plans.length}人のメンターがみつかりました。"
+        - @plans.each do |plan|
+          .col-12.bg-white.my-3.d-flex.shadow{style: "height: 300px;"}
+            .col-2
+              - if plan.plan_image
+                = link_to image_tag("#{plan.user.image_icon}"), plan_path(plan.id), style: "width: 75px; height: 75px; border-radius: 50%;", class: "mt-3"
+            .col-10
+              .col-12.h5.my-3
+                = link_to "#{plan.user.name}", plan_path(plan.id), class: "plan__show_link"
+              .col-12.h5{style: "height: 170px;"}
+                = link_to "#{plan.title}", plan_path(plan.id), class: "plan__show_link"
+              .col-12
+                = "#{plan.price} 円／月"
