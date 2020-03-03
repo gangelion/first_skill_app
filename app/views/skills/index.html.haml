@@ -12,12 +12,12 @@
           .col-12.bg-white.my-3.d-flex.shadow{style: "height: 300px;"}
             .col-2
               - if skill.plan.plan_image
-                = image_tag "#{skill.plan.user.image_icon}", style: "width: 75px; height: 75px; border-radius: 50%;", class: "mt-3"
+                = link_to image_tag("#{skill.plan.user.image_icon}"), plan_path(skill.plan.id), style: "width: 75px; height: 75px; border-radius: 50%;", class: "mt-3"
             .col-10
-              .col-12.h5.text-info.my-3
-                = skill.plan.user.name
+              .col-12.h5.my-3
+                = link_to "#{skill.plan.user.name}", plan_path(skill.plan.id), class: "plan__show_link"
               .col-12.h5{style: "height: 170px;"}
-                = skill.plan.title
+                = link_to "#{skill.plan.title}", plan_path(skill.plan.id), class: "plan__show_link"
               .col-12
                 = "#{skill.plan.price} 円／月"
             
