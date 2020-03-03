@@ -1,32 +1,37 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <i class="fas fa-file-signature h1 d-block text-center pt-5"></i>
-  <div class="field text-center pt-3">
-    <%= f.label "ユーザーネーム" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "rounded form-control-lg", placeholder: "メンタ太郎" %>
-  </div>
   
-  <div class="field text-center mt-2">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded form-control-lg", placeholder: "sample@mail.com"%>
-  </div>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-12">
+        <div class="bg-white py-5 shadow-sm" >
+          <div class="h1 text-info text-center font-weight-bold py-5">SIGN UP!</div>
+          
+          <div class="field text-center">
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "bg-light rounded form-control-lg", placeholder: "ユーザーネーム" %>
+          </div>
 
-  <div class="field text-center mt-3">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "rounded form-control-lg"%>
-  </div>
+          <div class="field text-center mt-3">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "bg-light rounded form-control-lg", placeholder: "Eメール" %>
+          </div>
 
-  <div class="field text-center mt-3 mb-5">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "rounded form-control-lg", placeholder: "password(確認用)" %>
-  </div>
+          <div class="field text-center mt-3">
+            <%= f.password_field :password, autocomplete: "new-password", class: "bg-light rounded form-control-lg", placeholder: "パスワード" %>
+          </div>
 
-  <div class="actions text-center">
-    <%= f.submit "Sign up", class: "col-3 btn btn-info rounded" %>
+          <div class="field text-center mt-3 mb-5">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "bg-light rounded form-control-lg", placeholder: "パスワード(確認用)" %>
+          </div>
+
+          <div class="actions text-center">
+            <%= f.submit "登録する", class: "col-6 col-md-3 btn btn-info rounded mb-5" %>
+          </div>
+          
+          <%= render "devise/shared/links" %>
+
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
