@@ -6,5 +6,8 @@ ja:
         description: プランの説明
         price: 金額
       user:
+        email: Eメール
+        password: パスワード
+        password_confirmation: パスワード(確認用)
         name: ユーザーネーム
         introduce: 自己紹介
