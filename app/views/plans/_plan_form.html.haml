@@ -39,3 +39,5 @@
     .h6.text-muted 1,000円以上1,000,000円以下
     = f.number_field :price, placeholder: "10000", class: "form-control", required: true, min: "1000", max: "1000000"
     %span.float-right 円／月
+    = f.fields_for :users_plans do |i|  
+      = i.hidden_field :user_id, value: current_user.id
