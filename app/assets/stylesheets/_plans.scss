@@ -31,3 +31,11 @@
   text-decoration: none;
   @extend .opacity_style;
 }
+
+.mentor__link {
+  color: $text-color;
+}
+.mentor__link:hover {
+  color: $main-color;
+  @extend .link_style;
+}

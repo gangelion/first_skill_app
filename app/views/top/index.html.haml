@@ -36,7 +36,7 @@
               = link_to "#{plan.title}", plan_path(plan.id), class: "plan_title_link", style: "word-wrap: break-word;"
             .col-12.position-absolute.fixed-bottom.mb-2
               = "料金 #{plan.price}円" 
-      .btn.btn-outline-info.btn-lg.mx-auto.my-5.d-block{type: "button", onclick: "location.href='#{all_plans_path}'", style: "width:400px;"} メンターを探す
+      .btn.btn-outline-info.btn-lg.mx-auto.my-5.d-block{type: "button", onclick: "location.href='#{all_mentor_plans_path}'", style: "width:400px;"} メンターを探す
         
   .btn__wrapper.row.mt-5
     .user.container

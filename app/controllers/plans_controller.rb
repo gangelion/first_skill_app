@@ -41,10 +41,13 @@ class PlansController < ApplicationController
     end
   end
 
-  def all
+  def all_mentor
     @plans = Plan.group(:user_id)
   end
 
+  def new_arrival_mentor
+    @plans = Plan.group(:user_id).reverse
+  end
   private
   
   def plan_params
