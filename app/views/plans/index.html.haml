@@ -21,7 +21,7 @@
             - if plan.user_id == current_user.id
               .col-12.bg-white.shadow.mt-3
                 .py-3.text-center
-                  = link_to image_tag("#{plan.plan_image}"), plan_path(plan.id), class: "plan__show_link"
+                  = link_to image_tag("#{plan.plan_image}", onerror: "this.src='https://www.silhouette-illust.com/wp-content/uploads/2017/01/book_pen_23791-300x300.jpg'"), plan_path(plan.id), class: "plan__show_link"
                 .pb-5
                   = link_to "#{plan.title}", plan_path(plan.id), class: "plan__show_link"
         .col-12.mt-3
