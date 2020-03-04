@@ -2,7 +2,7 @@
   .row.my-5
     .col-12.d-lg-flex.my-5
       .col-lg-3.bg-white.shadow.mx-2{style: "height: 80vh; overflow: scroll;"}
-        = image_tag "#{@plan.user.image_icon}", class: "mx-auto d-block my-3 shadow", style: "width: 150px; height: 150px; border-radius: 50%;"
+        = image_tag "#{@plan.user.image_icon}", class: "mx-auto d-block my-3 shadow", style: "width: 150px; height: 150px; border-radius: 50%;", onerror: "this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQfY6o0sCSzzGmKM5M23o8EJVUSeu1sq1bJcddtlZDGPip9A36'"
         .h4.text-center
           = link_to "#{@plan.user.name}", user_path, class: "user__show_link"
         - if user_signed_in? && current_user.id == @plan.user.id
@@ -12,7 +12,7 @@
         .h1.my-5.pt-3
           = "#{@plan.title}"
         .h2.my-5.text-center
-          = image_tag "#{@plan.plan_image}", class: "shadow"
+          = image_tag "#{@plan.plan_image}", class: "shadow", onerror: "this.src='https://www.silhouette-illust.com/wp-content/uploads/2017/01/book_pen_23791-300x300.jpg'"
         .border.p-3.shadow-sm  
           .text-info
             プラン説明
