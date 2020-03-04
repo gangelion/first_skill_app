@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   resources :plans do
     collection do
-      get "all"
+      get "all_mentor"
+      get "new_arrival_mentor"
     end
   end
 
