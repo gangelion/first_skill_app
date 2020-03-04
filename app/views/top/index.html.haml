@@ -28,13 +28,13 @@
       .mentor__box.row.mt-5.bg-light.d-flex.justify-content-center
         // planを配列として取得
         - @plans.each do |plan|
-          .col-md-3.bg-white.mx-3.my-3.shadow{style: "height: 250px;"}
+          .col-lg-3.bg-white.mx-3.my-3.shadow{style: "height: 250px;"}
             // plan.userによりplanを持つユーザーをメンターと判定
             = link_to image_tag("#{plan.user.image_icon}", style: "width: 40px; height: 40px; border-radius: 50%; margin: 10px;"), plan_path(plan.id), alt: "プロフィール写真"
             = link_to "#{plan.user.name}", plan_path(plan.id), class: "profile_link"
-            .col-md-12 
-              = link_to "#{plan.title}", plan_path(plan.id), class: "plan_title_link"
-            .col-md-12.position-absolute.fixed-bottom.mb-2
+            .col-12 
+              = link_to "#{plan.title}", plan_path(plan.id), class: "plan_title_link", style: "word-wrap: break-word;"
+            .col-12.position-absolute.fixed-bottom.mb-2
               = "料金 #{plan.price}円" 
       .btn.btn-outline-info.btn-lg.mx-auto.my-5.d-block{type: "button", onclick: "location.href='#{all_plans_path}'", style: "width:400px;"} メンターを探す
         
