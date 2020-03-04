@@ -31,16 +31,6 @@
   text-decoration: none;
 }
 
-.log_out {
-  color: $second-color;
-  margin: 0 50px;
-}
-.log_out:hover {
-  color: $second-color;
-  @extend .link_style;
-}
-
-
 .fa-robot {
   transition: 1.0s;
   transform: rotateZ(0deg);
