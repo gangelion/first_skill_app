@@ -15,7 +15,10 @@
       - unless user_signed_in?
         %nav.navbar.navbar-dark.bg-info
           %i.navbar-brand.fas.fa-robot.ml-5
-          = link_to "First Skill App", root_path, class: "navbar-brand app__title" 
+          = link_to "First Skill App", root_path, class: "navbar-brand app__title"
+        .ml-auto
+          = link_to "ログイン", new_user_session_path, class: "btn btn-outline-light mr-3"
+          = link_to "無料登録", new_user_registration_path, class: "btn btn-light"
       - else
         %button.navbar-toggler{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", type: "button"}
           %span.navbar-toggler-icon
