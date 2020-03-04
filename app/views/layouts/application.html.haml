@@ -13,31 +13,28 @@
   %body.bg-light
     %nav.navbar.navbar-expand-md.navbar-dark.bg-info
       - unless user_signed_in?
-        %nav.navbar.navbar-dark.bg-info
-          %i.navbar-brand.fas.fa-robot.ml-5
-          = link_to "First Skill App", root_path, class: "navbar-brand app__title"
-        .ml-auto
-          = link_to "ログイン", new_user_session_path, class: "btn btn-outline-light mr-3"
-          = link_to "無料登録", new_user_registration_path, class: "btn btn-light"
+        %button.navbar-toggler{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", type: "button"}
+          %span.navbar-toggler-icon
+        #navbarsExampleDefault.collapse.navbar-collapse
+          %nav.navbar.navbar-dark.bg-info.d-inline
+            %i.navbar-brand.fas.fa-robot.ml-md-5
+            = link_to "First Skill App", root_path, class: "navbar-brand app__title"
+          .ml-auto.float-right
+            = link_to "ログイン", new_user_session_path, class: "btn btn-outline-light mr-3"
+            = link_to "無料登録", new_user_registration_path, class: "btn btn-light"
       - else
         %button.navbar-toggler{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", type: "button"}
           %span.navbar-toggler-icon
         #navbarsExampleDefault.collapse.navbar-collapse
           %ul.navbar-nav.mr-auto
             %li.nav-item.active.d-flex
-              %i.fas.fa-home.mt-3.ml-5.text-white
+              %i.fas.fa-home.mt-3.ml-md-5.text-white
               = link_to "HOME", users_path, class: "nav-link home__btn"
               %span.sr-only (current)
-            %li.nav-item.dropdown
-              %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "#"} ステータス
-              .dropdown-menu{"aria-labelledby" => "dropdown01"}
-                %a.dropdown-item{href: "#"} プロフィール
-                %a.dropdown-item{href: "#"} hoge
-                %a.dropdown-item{href: "#"} hoge
           %form.form-inline.my-2.my-lg-0
             %input.form-control.mr-sm-2{"aria-label" => "Search", placeholder: "Search", type: "text"}/
             %button.btn.btn-light.my-2.my-sm-0{type: "submit"} Search
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log_out"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-light ml-5"
     = yield
     %footer.d-flex.justify-content-start.bg-white 
       .footer__left.container.text-center.my-5
