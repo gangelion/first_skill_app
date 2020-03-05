@@ -6,10 +6,10 @@
   @extend .link_style;
 }
 
-.profile_link {
+.user__name_link {
   color: $main-color;
 }
-.profile_link:hover {
+.user__name_link:hover {
   color: $main-color;
    @extend .link_style;
 }

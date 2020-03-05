@@ -8,40 +8,26 @@
       .col-12.bg-white.mb-3.d-flex.align-items-center.shadow{style: "height: 80px;"} ここには運営からのnewsが表示されます。
       .col-12.bg-white.mb-3.shadow{style: "height: 220px;"} slickで情報を流します。
       .col-12.bg-white.mb-3.shadow{style: "height: 250px;"} 詳細ページ
-      .col-12.bg-white.mb-3.shadow{style: "height: 300px;"} plan
+      .py-3{style: "height: 600px;"}
+        メンター
+        .my-3.d-flex{style: "height: 220px;"}
+          - @plans[0..2].each do |plan|
+            .col-4.bg-white.mx-1.shadow
+              .d-flex.align-items-center
+                = link_to image_tag("#{plan.user.image_icon}", onerror: "this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQfY6o0sCSzzGmKM5M23o8EJVUSeu1sq1bJcddtlZDGPip9A36'", style: "width: 40px; height: 40px; border-radius: 50%;"), plan_path(plan.id), style: "width: 75px; height: 75px; border-radius: 50%;", class: "mt-3"
+                = link_to "#{plan.user.name}", plan_path(plan.id), class: "user__name_link"
+              = link_to "#{plan.title}", plan_path(plan.id), class: "plan__show_link", style: "word-wrap: break-word;"
+        .my-3.d-flex{style: "height: 220px;"}
+          - @plans[3..5].each do |plan|
+            .col-4.bg-white.mx-1.shadow
+              .d-flex.align-items-center
+                = link_to image_tag("#{plan.user.image_icon}", onerror: "this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQfY6o0sCSzzGmKM5M23o8EJVUSeu1sq1bJcddtlZDGPip9A36'", style: "width: 40px; height: 40px; border-radius: 50%;"), plan_path(plan.id), style: "width: 75px; height: 75px; border-radius: 50%;", class: "mt-3"
+                = link_to "#{plan.user.name}", plan_path(plan.id), class: "user__name_link"
+              = link_to "#{plan.title}", plan_path(plan.id), class: "plan__show_link", style: "word-wrap: break-word;"
+        .text-muted
+          = link_to "もっとみる", all_mentor_plans_path, class: "mentor__link"
       = render "layouts/skill_btn"
       .col-12.bg-white.mb-3.shadow{style: "height: 500px;"} timeline
     .col-12.bg-light{style: "height: 50px;"} 
 
 
-
-      -#   学べる言語一覧
-      -# = form_with(url: "#", method: :get, local: true) do |f|
-      -#   .language   
-      -#     .language__content
-      -#       = f.label "language_htmlcss", "HTML/CSS"
-      -#       = f.radio_button :language, "HTML/CSS", class: "language__content_button"
-      -#     .language__content
-      -#       = f.label "language_ruby", "Ruby" 
-      -#       = f.radio_button :language, "Ruby", class: "language__content_button"
-      -#     .language__content
-      -#       = f.label "language_javascript", "Javascript" 
-      -#       = f.radio_button :language, "Javascript", class: "language__content_button"
-      -#     .language__content
-      -#       = f.label "language_python", "Python" 
-      -#       = f.radio_button :language, "Python", class: "language__content_button"
-      -#   .language 
-      -#     .language__content
-      -#       = f.label "language_go", "Go" 
-      -#       = f.radio_button :language, "Go", class: "language__content_button"
-      -#     .language__content
-      -#       = f.label "language_php", "PHP" 
-      -#       = f.radio_button :language, "PHP", class: "language__content_button"
-      -#     .language__content
-      -#       = f.label "language_java", "Java" 
-      -#       = f.radio_button :language, "Java", class: "language__content_button"
-      -#     .language__content
-      -#       = f.label "language_kotlin", "Kotlin" 
-      -#       = f.radio_button :language, "Kotlin", class: "language__content_button"
-      -#   .dash_content__right_btn
-      -#     = f.submit "メンターを探す", disabled: true, class: "submit_button"
