@@ -38,3 +38,11 @@
 .fa-robot:hover {
   transform: rotateZ(360deg);
 }
+
+.pagination>li>a {          
+  border: none;
+  color: $text-color;   
+}
+.pagination>li>a:active {          
+  color: $second-color;
+}

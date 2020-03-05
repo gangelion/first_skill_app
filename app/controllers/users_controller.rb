@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user_params, only: [:show, :edit, :update, :destroy]
   def index
-    @plans = Plan.group(:user_id).reverse
+    @plans = Plan.group(:user_id).order("created_at DESC")
   end
 
   def show

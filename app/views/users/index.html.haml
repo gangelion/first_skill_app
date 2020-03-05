@@ -26,7 +26,7 @@
               = link_to "#{plan.title}", plan_path(plan.id), class: "plan__show_link", style: "word-wrap: break-word;"
         .text-muted
           = link_to "もっとみる", all_mentor_plans_path, class: "mentor__link"
-      = render "layouts/skill_btn"
+      = render "shared/skill_btn"
       .col-12.bg-white.mb-3.shadow{style: "height: 500px;"} timeline
     .col-12.bg-light{style: "height: 50px;"} 
 

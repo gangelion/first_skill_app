@@ -22,3 +22,5 @@
                 = link_to "#{plan.title}", plan_path(plan.id), class: "plan__show_link pt-3 d-block", style: "word-wrap: break-word;"
               .col-12
                 = "#{plan.price} 円／月"
+      .my-5
+        = paginate(@plans)
