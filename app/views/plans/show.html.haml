@@ -9,7 +9,11 @@
           .text-center.mt-5
             = link_to "プランを編集する", edit_plan_path(params[:id]), class: "btn btn-outline-info"
       .col-lg-9.bg-white.shadow.mx-2{style: "word-wrap: break-word;"}
-        .h1.my-5.pt-3
+        .m-3
+          - @plan.skills.each do |skill|
+            %span.badge.badge-info
+              = "#{skill.skill_set}"
+        .h1.my-3.pt-3
           = "#{@plan.title}"
         .h2.my-5.text-center
           = image_tag "#{@plan.plan_image}", class: "shadow", onerror: "this.src='https://www.silhouette-illust.com/wp-content/uploads/2017/01/book_pen_23791-300x300.jpg'"
