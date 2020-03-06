@@ -1,0 +1,7 @@
+.tag__link {
+  color: $text-color;
+}
+.tag__link:hover {
+  text-decoration: none;
+  @extend .opacity_style;
+}
