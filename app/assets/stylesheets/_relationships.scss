@@ -1,0 +1,13 @@
+.follow__btn {
+  height: 40px;
+  width: 200px;
+  border-radius: 20px;
+  background-color: $second-color;
+  color: $main-color;
+  border-color: $main-color;
+  outline: 0;
+}
+.follow__btn:hover {
+  background-color: $main-color;
+  color: $second-color;
+}
