@@ -49,6 +49,11 @@ class PlansController < ApplicationController
   def new_arrival_mentor
     @plans = Plan.includes(:user).group(:user_id).order("created_at DESC").page(params[:page]).per(5)
   end
+
+  def search
+    @plans = Plan.search(params[:keyword]).includes(:user).group(:user_id).page(params[:page]).per(5)
+  end
+
   private
   
   def plan_params

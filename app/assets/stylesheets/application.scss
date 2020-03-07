@@ -40,6 +40,17 @@
   transform: rotateZ(360deg);
 }
 
+.search__btn {
+  background-color: $second-color;
+  width: 250px;
+  height: 40px;
+  border-radius: 20px;
+  padding-left: 15px;
+  margin-right: 5px; 
+  border: none;
+  outline: 0;
+}
+
 .pagination>li>a {          
   border: none;
   color: $text-color;   

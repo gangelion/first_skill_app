@@ -21,4 +21,9 @@ class Plan < ApplicationRecord
       self.skills = self.skills.map {|skill| Skill.find_or_create_by(skill_set: skill.skill_set.strip)}
     end
 
+    def self.search(search)
+      return Plan.all unless search
+      Plan.eager_load(:skills).where("title LIKE? OR skill_set LIKE?", "%#{search}%", "%#{search}%")
+    end
+
 end
