@@ -7,18 +7,20 @@
         .h3.my-4.text-info
           = "メンターをさがす(#{@skill.skill_set})"
         .col-12  
-          = "#{@skills.length}人のメンターがみつかりました。"
-        - @skills.each do |skill|
+          = "#{@plans.ids.length}人のメンターがみつかりました。"
+        - @plans.each do |plan|
           .col-12.bg-white.my-3.d-flex.shadow{style: "height: 300px;"}
             .col-2
-              - if skill.plan_image
-                = link_to image_tag("#{skill.user.image_icon}", style: "width: 75px; height: 75px; border-radius: 50%;", onerror: "this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQfY6o0sCSzzGmKM5M23o8EJVUSeu1sq1bJcddtlZDGPip9A36'"), plan_path(skill.id), style: "width: 75px; height: 75px; border-radius: 50%;", class: "mt-3"
+              = link_to image_tag("#{plan.user.image_icon}", style: "width: 75px; height: 75px; border-radius: 50%;", onerror: "this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQfY6o0sCSzzGmKM5M23o8EJVUSeu1sq1bJcddtlZDGPip9A36'"), plan_path(plan.id), style: "width: 75px; height: 75px; border-radius: 50%;", class: "mt-3"
             .col-10
               .col-12.h5.my-3
-                = link_to "#{skill.user.name}", plan_path(skill.id), class: "plan__show_link"
+                = link_to "#{plan.user.name}", plan_path(plan.id), class: "plan__show_link"
+                - plan.skills.each do |skill|  
+                  %span.badge.badge-pill.badge-info
+                    = link_to "#{skill.skill_set}", skills_path(id: "#{skill.id}"), class: "tag__link text-white", style: "word-wrap: break-word;"
               .col-12.h5{style: "height: 170px;"}
-                = link_to "#{skill.title}", plan_path(skill.id), class: "plan__show_link"
+                = link_to "#{plan.title}", plan_path(plan.id), class: "plan__show_link"
               .col-12
-                = "#{skill.price} 円／月"
+                = "#{plan.price} 円／月"
       .my-5
-        = paginate(@skills)
+        = paginate(@plans)
