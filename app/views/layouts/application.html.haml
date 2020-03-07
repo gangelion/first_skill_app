@@ -20,6 +20,9 @@
           %nav.navbar.navbar-dark.bg-info.d-inline
             %i.navbar-brand.fas.fa-robot.ml-md-5
             = link_to "First Skill App", root_path, class: "navbar-brand app__title"
+          = form_with(url: search_plans_path, local: true, method: :get, class: "form-inline my-2 my-lg-0") do |f|
+            = f.text_field :keyword, placeholder: "Rubyなどスキル名で検索", class: "search__btn"
+            = f.submit "検索", class: "btn btn-light my-sm-0"
           .ml-auto.float-right
             = link_to "ログイン", new_user_session_path, class: "btn btn-outline-light mr-3"
             = link_to "無料登録", new_user_registration_path, class: "btn btn-light"

@@ -6,8 +6,13 @@
       .bg-light
         .h3.my-4.text-info
           = "メンターをさがす(#{@skill.skill_set})"
-        .col-12  
-          = "#{@plans.ids.length}人のメンターがみつかりました。"
+        - if @plans.ids.length == 0
+          .col-12.bg-white.text-danger.justify-content-center.shadow-sm.d-flex.align-items-center{style: "height: 50px;"}
+            %i.fas.fa-exclamation-triangle
+            メンターが見つかりませんでした。
+        - else
+          .col-12  
+            = "#{@plans.ids.length}人のメンターがみつかりました。"
         - @plans.each do |plan|
           .col-12.bg-white.my-3.d-flex.shadow{style: "height: 300px;"}
             .col-2
