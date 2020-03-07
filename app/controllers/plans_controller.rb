@@ -21,6 +21,7 @@ class PlansController < ApplicationController
   end
 
   def show
+    @user = Plan.find(params[:id]).user
   end
 
   def edit
@@ -38,7 +39,7 @@ class PlansController < ApplicationController
     if @plan.destroy
       render "plans/destroy"
     else
-      redierct_back(fallback_location: root_path)
+      redirect_back(fallback_location: root_path)
     end
   end
 
