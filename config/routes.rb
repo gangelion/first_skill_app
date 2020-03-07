@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :skills, only:[:index]
   resources :chats, only: [:index, :create]
   
+  resources :relationships, only: [:create, :destroy]
 
   namespace :mentors do
     resources :main, only: [:index]
