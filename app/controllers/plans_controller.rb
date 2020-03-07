@@ -7,6 +7,7 @@ class PlansController < ApplicationController
   def new
     @plan = Plan.new
     @plan.users_plans.new
+    @plan.skills.new
   end
 
   def create
@@ -51,7 +52,7 @@ class PlansController < ApplicationController
   private
   
   def plan_params
-    params.require(:plan).permit(:title, :description, :plan_image, :price, :user_id, users_plans_attributes: [:user_id], skill_ids: [])
+    params.require(:plan).permit(:title, :description, :plan_image, :price, :user_id, users_plans_attributes: [:user_id], skills_attributes: [:skill_set])
   end
 
   def set_plan_params

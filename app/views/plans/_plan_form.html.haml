@@ -21,9 +21,10 @@
   .form-group.col-12
     .h3 タグ
     .title_btn
-      = f.collection_check_boxes(:skill_ids, Skill.all, :id, :skill_set, class: "form-control") do |skill|
-        = skill.check_box
-        = skill.label
+      .tags
+        = f.fields_for :skills do |i|
+          = i.label :skill_set, "スキル"
+          = i.text_field :skill_set, id: "formTagInput", class: "form-control"
       .title_description.text-danger 登録すると検索されやすくなるため成約率が上がります！
       .title_description.mb-3.text-muted 最大5件まで登録できます 例）Ruby PHP
   .form-group.col-12 
