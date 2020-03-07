@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       get "all_mentor"
       get "new_arrival_mentor"
+      get "search"
     end
   end
 
