@@ -1,0 +1,19 @@
+.container
+  .row.my-5
+    = render "layouts/sidebar"
+    .col-9
+      .col-12.text-info.h5.my-3
+        メッセージ
+      .col-12
+        - if @messages.length == 0
+          .col-12.bg-white.my-3.d-flex.align-items-center.shadow{style: "height: 70px;"}
+            見つかりませんでした。
+        - else
+          .col-12.bg-light
+            = "#{@messages.length}件のメッセージが見つかりました。"
+          - @messages.each do |message|
+            .col-12.bg-white.my-3.shadow-sm.d-flex.align-items-center{style: "height: 100px; word-wrap: break-word;"}
+              .col-9
+                = "#{message.mentee.name}さんからのメッセージ"  
+              .col-3.my-3
+                = link_to "確認する", "#"

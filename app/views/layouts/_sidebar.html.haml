@@ -4,6 +4,9 @@
       %i.fas.fa-home
       = link_to "ダッシュボード", users_path, class: "side__menu"
     %li
+      %i.far.fa-envelope
+      = link_to "メッセージ", user_messages_path(current_user.id), class: "side__menu"
+    %li
       %i.far.fa-address-card
       = link_to "プロフィール", user_path(current_user.id), class: "side__menu"
     %li
