@@ -1,4 +1,20 @@
-= form_with url: "/users/#{@user.id}/messages", local: true do |f|
-  = f.text_area :content
-  = f.hidden_field :mentee_id, value: current_user.id
-  = f.submit "メッセージを送信する"
+.col-12.my-3
+  %button.message__btn(data-toggle="modal" data-target="#modal")
+    メッセージで相談
+.modal.fade#modal(tabindex="-1" role="dialog" aria-labelledby="centerModal" aria-hidden="true")
+  .modal-dialog.modal-lg.modal-dialog-centered{role: "document"}
+    .modal-content
+      %button.close(data-dismiss="modal" aria-label="Close")
+        %span(aria-hidden="true")
+      .modal-body
+        .col-12.text-center.text-info.h5.my-5
+          = "#{@user.name}さんにメッセージで相談する"
+        .col-12.text-left.mb-3  
+          気になったら、まずは教えてほしいことを相談！
+          %br 希望にあうマッチングをするために、メンターには現在の状況、困っていること、目標など、できるだけ詳しく送りましょう。
+        = form_with url: "/users/#{@user.id}/messages", local: true do |f|
+          = f.text_area :content, placeholder: "●現在の状況&#13;&#10;●困っていること&#13;&#10;●目標".html_safe, class: "form-control", rows: 10
+          = f.hidden_field :mentee_id, value: current_user.id
+          = f.submit "メッセージを送信する", class: "btn btn-outline-info my-3"
+
+
