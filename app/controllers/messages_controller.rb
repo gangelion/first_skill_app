@@ -1,5 +1,9 @@
 class MessagesController < ApplicationController
   
+  def index
+    @messages = Message.where(user_id: current_user.id).order("created_at DESC")
+  end
+  
   def new
     @message = Message.new
   end
@@ -13,6 +17,9 @@ class MessagesController < ApplicationController
     end
   end
 
+  def reply
+    @message = Message.find(params[:id])
+  end
   private
   
   def message_params

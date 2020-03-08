@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-12.bg-white.my-3.shadow-sm{style: "height: 100vh; word-wrap: break-word;"}   
+      .col-12.text-center.text-info.h5.my-5
+        = "#{@message.mentee.name}さんからのメッセージ"
+      .col-8.mx-auto.border
+        = @message.content
+

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_03_08_033135) do
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "content"
+    t.text "content", null: false
     t.bigint "user_id"
     t.bigint "mentee_id"
     t.datetime "created_at", null: false
