@@ -13,7 +13,9 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :user
-  
+  has_many :messages, dependent: :delete_all
+  has_many :mentee_messages, class_name: 'Message', foreign_key: 'mentee_id', dependent: :delete_all
+
   validates :name, presence: true, length: { maximum: 20 }
   validates :introduce, length: { maximum: 500 }
 
