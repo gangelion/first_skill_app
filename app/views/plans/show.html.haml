@@ -8,10 +8,9 @@
         - if user_signed_in? && current_user.id == @user.id
           .text-center.mt-5
             = link_to "プランを編集する", edit_plan_path(params[:id]), class: "btn btn-outline-info"
-        - if user_signed_in? && current_user.id != @user.id
+        - if user_signed_in?
           .col-12.text-center.my-3
-            = render partial: "relationships/follow_button", locals: { user: @user }            
-            = render "messages/new"
+            = render partial: "relationships/follow_button", locals: { user: @user }
       .col-lg-9.bg-white.shadow.mx-2{style: "word-wrap: break-word;"}
         .m-3
           - @plan.skills.each do |skill|

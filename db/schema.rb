@@ -10,23 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_033135) do
+ActiveRecord::Schema.define(version: 2020_03_07_123837) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "content"
-    t.bigint "user_id"
-    t.bigint "mentee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["mentee_id"], name: "index_messages_on_mentee_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "plan_skill_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -65,6 +55,11 @@ ActiveRecord::Schema.define(version: 2020_03_08_033135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -89,8 +84,6 @@ ActiveRecord::Schema.define(version: 2020_03_08_033135) do
     t.index ["user_id"], name: "index_users_plans_on_user_id"
   end
 
-  add_foreign_key "messages", "users"
-  add_foreign_key "messages", "users", column: "mentee_id"
   add_foreign_key "plans", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
