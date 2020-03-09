@@ -3,7 +3,7 @@ class CreateMessages < ActiveRecord::Migration[5.2]
     create_table :messages do |t|
       t.text :content, null: false
       t.references :user, foreign_key: true
-      t.references :mentee, foreign_key: { to_table: :users }
+      t.references :sender, foreign_key: { to_table: :users }
       t.timestamps
     end
   end

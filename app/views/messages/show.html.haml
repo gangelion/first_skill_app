@@ -1,8 +1,17 @@
 .container
   .row
-    .col-12.bg-white.my-3.shadow-sm{style: "height: 100vh; word-wrap: break-word;"}   
+    .col-12.bg-white.my-5.shadow-sm{style: "height: 100%; word-wrap: break-word;"}   
       .col-12.text-center.text-info.h5.my-5
-        = "#{@message.mentee.name}さんからのメッセージ"
+        = "#{@message.sender.name}さんからのメッセージ"
       .col-8.mx-auto.border
         = @message.content
-
+      .col-12.my-3{style: "height: 100px;"}
+      .col-12.text-center{style: "width: 100%;"}
+        .col-8.offset-2.text-left.mb-3{style: "width: 100%;"}  
+          = "#{@message.sender.name}さんからメッセージが届きました！"
+          %br メッセージに対する返答を送りましょう。
+        .col-8.offset-2
+          = form_with url: "/users/#{@message.sender.id}/messages", local: true do |f|
+            = f.text_area :content, placeholder: "メッセージに対する返答&#13;&#10;メンター側・・・できること・プラン内容&#13;&#10;メンティ側・・・気になることや聞いておきたいこと".html_safe, class: "form-control", rows: 10
+            = f.hidden_field :sender_id, value: current_user.id
+            = f.submit "返信する", class: "btn btn-outline-info my-5"
