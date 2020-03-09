@@ -17,12 +17,13 @@ class MessagesController < ApplicationController
     end
   end
 
-  def reply
+  def show
     @message = Message.find(params[:id])
   end
+
   private
   
   def message_params
-    params.permit(:content, :user_id, :mentee_id)
+    params.permit(:content, :user_id, :sender_id)
   end
 end

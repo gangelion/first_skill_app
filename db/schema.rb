@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 2020_03_08_033135) do
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
     t.bigint "user_id"
-    t.bigint "mentee_id"
+    t.bigint "sender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["mentee_id"], name: "index_messages_on_mentee_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2020_03_08_033135) do
   end
 
   add_foreign_key "messages", "users"
-  add_foreign_key "messages", "users", column: "mentee_id"
+  add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "plans", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
