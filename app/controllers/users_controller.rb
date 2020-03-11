@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      render "users/destroy"
+      render :destroy
     else
       redierct_back(fallback_location: root_path)
     end

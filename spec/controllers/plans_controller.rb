@@ -90,7 +90,7 @@ describe PlansController do
 	end
 
 	describe 'PATCH #update' do
-		let(:params) { { id: plan.id, plan: attributes_for(:plan, title: "aaaaaaaaaaaaaaa")} }
+		let(:params) { { id: plan.id, plan: attributes_for(:plan, title: "update_test")} }
 		before do
 			login user
 		end
@@ -106,7 +106,7 @@ describe PlansController do
 				}
 				it "レコードが更新されること" do
 					subject
-					expect(plan.reload.title).to eq "aaaaaaaaaaaaaaa"
+					expect(plan.reload.title).to eq "update_test"
 				end
 				it "users_pathにリダイレクトされること" do
 					subject
@@ -120,8 +120,8 @@ describe PlansController do
 					params: invalid_params
 				}
 				it "レコードが更新されないこと" do
-					plan
-					expect{ subject }.not_to change(Plan, :count)
+					subject
+					expect(plan.title).to eq "testタイトルです"
 				end
 				it "editアクションにrenderされること" do
 					subject
@@ -149,9 +149,9 @@ describe PlansController do
 					plan
 					expect{ subject }.to change(Plan, :count).by(-1)
 				end
-				it 'plans/destroyにrenderされること' do
+				it 'destroyのviewがrenderされること' do
 					subject
-					expect(response).to render_template "plans/destroy"
+					expect(response).to render_template :destroy
 				end
 			end
 		end

@@ -37,7 +37,7 @@ class PlansController < ApplicationController
 
   def destroy
     if @plan.destroy
-      render "plans/destroy"
+      render :destroy
     else
       redirect_back(fallback_location: root_path)
     end
