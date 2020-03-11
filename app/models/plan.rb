@@ -12,7 +12,7 @@ class Plan < ApplicationRecord
 
   validates :title, presence: true, length: { in: 10..80 }
   validates :description, presence: true, length: { maximum: 2000 }
-  validates :price, presence: true
+  validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1000, less_than_or_equal_to: 1000000 }
 
   before_save :find_or_create_skill
 
