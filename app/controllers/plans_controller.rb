@@ -2,6 +2,7 @@ class PlansController < ApplicationController
   before_action :set_plan_params, only: [:show, :edit, :update, :destroy]
   def index
     @plans = Plan.all
+    @skills = Skill.first(8)
   end
 
   def new

@@ -5,7 +5,7 @@
         .col-12.bg-white.shadow.m-2{style: "height: 400px; word-wrap: break-word;"}
           TAG
           .col-12
-            - Skill.last(10).each do |skill|
+            - @skills.each do |skill|
               = link_to "# #{skill.skill_set}", skills_path(id: "#{skill.id}"), class: "tag__link m-1 d-block"
         .col-12.bg-white.shadow.m-2{style: "height: 300px;"} 
           CATEGORY
