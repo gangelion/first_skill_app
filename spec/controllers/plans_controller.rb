@@ -4,10 +4,15 @@ describe PlansController do
 	let(:user) { create(:user) }
 	let(:plan) { create(:plan) }
 	describe 'GET #index' do
-		it "配列が取得できること" do
+		it "配列が取得できること(@plans)" do
 			plans = create_list(:plan, 3)
 			get :index
 			expect(assigns(:plans)).to match(plans)
+		end
+		it "配列が取得できること(@skills)" do
+			skills = create_list(:skill, 3)
+			get :index
+			expect(assigns(:skills)).to match(skills)
 		end
 		it "indexページが表示されること" do
 			get :index

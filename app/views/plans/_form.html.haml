@@ -21,7 +21,7 @@
   .form-group.col-12
     .h3 タグ
     .title_btn
-      .tags
+      .tags.d-flex
         = f.fields_for :skills do |i|
           = i.label :skill_set, "スキル"
           = i.text_field :skill_set, id: "formTagInput", class: "form-control"
