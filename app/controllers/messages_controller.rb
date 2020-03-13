@@ -3,10 +3,6 @@ class MessagesController < ApplicationController
   def index
     @messages = Message.where(user_id: current_user.id).order("created_at DESC")
   end
-  
-  def new
-    @message = Message.new
-  end
 
   def create
     @message = Message.new(message_params)

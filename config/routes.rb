@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, except: [:new, :create] do
-    resources :messages, only: [:index, :new, :create, :show]
+    resources :messages, only: [:index, :create, :show]
     member do 
       get "delete_confirm"
     end

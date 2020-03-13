@@ -161,4 +161,16 @@ describe PlansController do
 			end
 		end
 	end
+
+	describe 'GET #new_arrival_mentor' do
+		it "配列が新着順に取得できること" do
+			plans = create_list(:plan, 5)
+			get :new_arrival_mentor
+			expect(assigns(:plans)).to match(plans.sort{ |a, b| b.created_at <=> a.created_at })
+		end
+		it "新着メンター画面が表示されること" do
+			get :new_arrival_mentor
+			expect(response).to render_template :new_arrival_mentor
+		end
+	end
 end
