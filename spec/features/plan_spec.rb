@@ -2,6 +2,7 @@ require 'rails_helper'
 feature 'plan', type: :feature do
 	given(:user) { create(:user) }
 	given(:plan) { create(:plan) }
+	given(:plans) { create_list(:plan, 5) }
   scenario 'ログインからプラン投稿、編集、削除まで' do
 		visit root_path
 		expect(page).to have_content('First Skill App')
@@ -55,9 +56,10 @@ feature 'plan', type: :feature do
 		click_link('プランを編集する')
 		click_on('削除する')
 		expect(page).to have_content('プランを削除しました')
-  end
+	end
+	
 	feature 'プラン一覧の確認' do
-		scenario 'プランがない時はプランが表示されない' do
+		scenario 'プランがない時はプランが表示されないこと' do
 			visit new_user_session_path
 			fill_in 'user_email', with: user.email
 			fill_in 'user_password', with: user.password
@@ -66,6 +68,38 @@ feature 'plan', type: :feature do
 			expect(current_path).to eq plans_path
 			expect(page).to have_no_link(".plan__show_link")
 			expect(page).to have_no_selector(".plan__show_link")
+		end
+	end
+
+	feature '検索機能' do
+		context 'プランが見つかった時' do
+			scenario '検索ワードに紐づくメンターが表示されること' do
+				plan
+				visit root_path
+				fill_in 'keyword', with: "test"
+				click_on('検索')
+				expect(page).to have_link('testタイトルです')
+			end
+		end
+		context 'プランが見つからなかった時' do
+			scenario '見つかりませんでしたと表示されること' do
+				visit root_path
+				fill_in 'keyword', with: "失敗"
+				click_on('検索')
+				expect(page).to have_content('見つかりませんでした。')
+			end
+		end
+	end
+	feature 'メンター表示機能' do
+		scenario '総合と新着メンターが表示されること' do
+			plans
+			visit root_path
+			click_link('メンターを探す')
+			expect(current_path).to eq all_mentor_plans_path
+			expect(page).to have_link('test')
+			click_link('新着')
+			plans.reverse
+			expect(current_path).to eq new_arrival_mentor_plans_path
 		end
 	end
 end
