@@ -71,6 +71,47 @@ feature 'plan', type: :feature do
 		end
 	end
 
+	feature '自分のプランを選択した時' do
+		given(:own_plan) { create(:plan, user_id: user.id) }
+		given(:others_plan) { Plan.create(id: plan.id, user_id: user.id + 1) }
+		context '自分のプランを選択した場合' do
+			background {
+				own_plan
+				visit new_user_session_path
+				fill_in 'user_email', with: user.email
+				fill_in 'user_password', with: user.password
+				find(".login__main_btn").click
+			}
+			scenario 'メッセージで相談、フォローボタンが表示されないこと' do
+				click_link('testタイトルです')
+				expect(page).to have_no_button('メッセージで相談')
+				expect(page).to have_no_button('フォローする')
+			end
+			scenario 'プランを編集するボタンが表示されること' do
+				click_link('testタイトルです')
+				expect(page).to have_link('プランを編集する')
+			end
+		end
+		context '他人のプランを選択した場合' do
+			background {
+				others_plan
+				visit new_user_session_path
+				fill_in 'user_email', with: user.email
+				fill_in 'user_password', with: user.password
+				find(".login__main_btn").click
+			}
+			scenario 'メッセージで相談、フォローボタンが表示されること' do
+				click_link('testタイトルです')
+				expect(page).to have_button('メッセージで相談')
+				expect(page).to have_button('フォローする')
+			end
+			scenario 'プランを編集するボタンが表示されないこと' do
+				click_link('testタイトルです')
+				expect(page).to have_no_link('プランを編集する')
+			end
+		end
+  end
+
 	feature '検索機能' do
 		context 'プランが見つかった時' do
 			scenario '検索ワードに紐づくメンターが表示されること' do
