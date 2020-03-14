@@ -9,12 +9,13 @@ class User < ApplicationRecord
   has_many :users_plans, dependent: :delete_all
   has_many :plans, through: :users_plans
   has_many :plans, dependent: :delete_all
-  has_many :relationships
+  has_many :relationships, dependent: :delete_all
   has_many :followings, through: :relationships, source: :follow
-  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :delete_all
   has_many :followers, through: :reverse_of_relationships, source: :user
   has_many :messages, dependent: :delete_all
-
+  has_many :replymessages, class_name: 'Message', foreign_key: 'sender_id', dependent: :delete_all
+  
   validates :name, presence: true, length: { maximum: 20 }
   validates :introduce, length: { maximum: 500 }
 
