@@ -114,12 +114,21 @@ feature 'plan', type: :feature do
 
 	feature '検索機能' do
 		context 'プランが見つかった時' do
-			scenario '検索ワードに紐づくメンターが表示されること' do
+			scenario 'タイトルに紐づくメンターが表示されること' do
 				plan
 				visit root_path
 				fill_in 'keyword', with: "test"
 				click_on('検索')
 				expect(page).to have_link('testタイトルです')
+			end
+			scenario 'タグに紐づくメンターが表示されること' do
+				plan = create(:plan, title: "テストスキルのタイトル")
+				skill = create(:skill, skill_set: "テストスキルのタグ")
+				plan_skill_tag = create(:plan_skill_tag, skill_id: skill.id, plan_id: plan.id)
+				visit root_path
+				fill_in 'keyword', with: "テストスキルのタグ"
+				click_on('検索')
+				expect(page).to have_link('テストスキルのタイトル')
 			end
 		end
 		context 'プランが見つからなかった時' do
