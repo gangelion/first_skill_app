@@ -125,13 +125,28 @@ feature 'top', type: :feature do
     end    
   end
   feature '表示されているメンターのリンクを押した時' do
+    given(:user) { create(:user) }
+    given(:plan) { create(:plan, user_id: user.id) }
+    background {
+      user
+      plan
+      visit root_path
+    }
     scenario 'プラン詳細画面に遷移すること' do
+      click_on('test')
+      expect(current_path).to eq plan_path(plan)
     end
     scenario '機能が制限されること（フォローできない、メッセージが送れない、プランが編集できない）' do
+      click_on('test')
+      expect(page).to have_no_content('フォロー')
+      expect(page).to have_no_content('メッセージ')
+      expect(page).to have_no_content('プランを編集する')
     end
   end
   feature 'メンターを探すを押した時' do
     scenario 'メンター一覧画面に遷移すること' do
+      click_on('メンターを探す')
+      expect(current_path).to eq all_mentor_plans_path
     end
   end
 end
