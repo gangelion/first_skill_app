@@ -6,8 +6,7 @@
       .text-info.display-4.font-weight-bold 相談しよう
       %p.col-6  プログラミングは難しいと諦めていませんか？
       %p.col-6 あなたと共に歩みを進めるメンターがいます！まずは登録してみましょう！
-      .btn.btn-info.btn-lg.mt-5.mx-auto.d-block{type: "button", onclick: "location.href='#{new_user_registration_path}'", style: "width:300px;"} 
-        ユーザー登録をする
+      = link_to "ユーザー登録をする", new_user_registration_path, class: "first_registration_link btn btn-info btn-lg mt-5 mx-auto d-block", style: "width:300px;"
       .mentor_registration.text-info.text-center.d-block.mt-4.mb-5
         = link_to "メンターとして登録したい方はこちら", top_path, class: "mentor__top_link"
 
@@ -51,7 +50,7 @@
           %i.fas.fa-yen-sign.text-info.display-4
           .icon_title.text-info リーズナブル
           %p.mb-5 メンターと直接契約ですのでリーズナブルに指導を受けることができます。
-        .btn.btn-info.btn-lg.mx-auto.my-5.d-block{type: "button", onclick: "location.href='#{new_user_registration_path}'", style: "width:400px;"} ユーザー登録をする
-        
+        = link_to "ユーザー登録をする", new_user_registration_path, class: "second_registration_link btn btn-info btn-lg my-5 mx-auto d-block", style: "width:400px;"
+
 
 
