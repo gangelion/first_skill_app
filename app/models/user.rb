@@ -8,7 +8,7 @@ class User < ApplicationRecord
   
   has_many :users_plans, dependent: :delete_all
   has_many :plans, through: :users_plans
-  has_many :plans, dependent: :delete_all
+  has_many :plans, dependent: :destroy
   has_many :relationships, dependent: :delete_all
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :delete_all
