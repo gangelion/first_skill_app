@@ -130,6 +130,21 @@ feature 'plan', type: :feature do
 				click_on('検索')
 				expect(page).to have_link('テストスキルのタイトル')
 			end
+			scenario '複数キーワード検索が可能なこと(空白も取り除けていること)' do
+				plan = create(:plan, title: "テストスキルのタイトル", description: "説明を記入しました。")
+				skill = create(:skill, skill_set: "HTML")
+				plan_skill_tag = create(:plan_skill_tag, skill_id: skill.id, plan_id: plan.id)
+				visit root_path
+				fill_in 'keyword', with: "説明 HT　"
+				click_on('検索')
+				expect(page).to have_content('テストスキルのタイトル')
+				fill_in 'keyword', with: "HTML テスト"
+				click_on('検索')
+				expect(page).to have_content('テストスキルのタイトル')
+				fill_in 'keyword', with: " 　HTML 説明　テスト"
+				click_on('検索')
+				expect(page).to have_content('テストスキルのタイトル')
+			end
 		end
 		context 'プランが見つからなかった時' do
 			scenario '見つかりませんでしたと表示されること' do
