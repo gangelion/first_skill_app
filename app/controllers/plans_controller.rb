@@ -53,7 +53,11 @@ class PlansController < ApplicationController
   end
 
   def search
-    @plans = Plan.search(params[:keyword]).includes(:user).group(:user_id).page(params[:page]).per(5)
+    if Plan.search(params[:keyword]).nil?
+      redirect_back(fallback_location: root_path)
+    else
+      @plans = Plan.search(params[:keyword]).includes(:user).group(:user_id).page(params[:page]).per(5)
+    end
   end
 
   private

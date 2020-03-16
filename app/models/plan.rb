@@ -17,22 +17,41 @@ class Plan < ApplicationRecord
   before_save :find_or_create_skill
 
   private
-    def find_or_create_skill
-      skill_array = []
-      self.skills.map { |skill|
-        skill.skill_set.strip.split(",").each do |skill_set|
-          skill_array << skill_set
-        end  
-      }
-      self.skills.destroy_all
-      skill_array.each do |skill|
-        self.skills << Skill.find_or_create_by(skill_set: skill)
-      end
+  def find_or_create_skill
+    skill_array = []
+    self.skills.map { |skill|
+      skill.skill_set.strip.split(",").each do |skill_set|
+        skill_array << skill_set
+      end  
+    }
+    self.skills.destroy_all
+    skill_array.each do |skill|
+      self.skills << Skill.find_or_create_by(skill_set: skill)
     end
+  end
 
-    def self.search(search)
-      return Plan.all unless search
-      Plan.eager_load(:skills).where("title LIKE? OR skill_set LIKE?", "%#{search}%", "%#{search}%")
+  def self.search(keyword)
+    if keyword && keyword != ""
+      words = keyword.to_s.split(/[[:blank:]]+/)
+      columns = ["title", "description", "skill_set"]
+      query = []
+      result = []
+ 
+      columns.each do |column|
+        query << ["#{column} LIKE ?"]
+      end
+ 
+      words.each_with_index do |w, index|
+        if index == 0
+          result[index] = Plan.eager_load(:skills).where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%"])
+        else
+          result[index] = result[index-1].where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%"])
+        end
+      end
+      return result[words.length-1]
+    else
+      Plan.all
     end
+  end
 
 end
