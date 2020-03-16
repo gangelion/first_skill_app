@@ -13,11 +13,15 @@
     .h3 プラン画像
     .image_description.text-muted 
       イメージ画像を掲載しましょう！
-    %label.col-12{for: "plan_plan_image"}
+    %label.col-12{for: "plan_image"}
       .upload__back.bg-light{style: "height: 200px;"}
-        %i.far.fa-image.mx-3.my-3
+        %i.far.fa-image.mx-5.my-3
           クリックしてイメージ画像を選択
-        = f.file_field :plan_image, class: "d-none"
+        = f.file_field :plan_image, class: "d-none", id: "plan_image"
+        - if @plan.plan_image.present?
+          = image_tag "#{@plan.plan_image}", id: "img_prev", style: "width: 200px; height: 200px; border-radius: 50%;", class: "ml-5 shadow-sm"
+        - else
+          = image_tag "https://www.silhouette-illust.com/wp-content/uploads/2017/01/book_pen_23791-300x300.jpg", id: "img_prev", style: "width: 200px; height: 200px; border-radius: 50%;", class: "ml-5 shadow-sm"
   .form-group.col-12
     .h3 タグ
     .title_btn

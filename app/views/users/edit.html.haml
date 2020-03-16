@@ -19,19 +19,16 @@
             .h3 イメージアイコン
             .image_icon.text-muted 
               あなたをイメージさせるような画像を掲載しましょう！
-            %label.col-12{for: "user_image_icon"}
+            %label.col-12{for: "image_icon"}
               .upload__back.bg-light{style: "height: 200px;"}
-                %i.far.fa-image.mx-3.my-3
+                %i.far.fa-image.mx-5.my-3
                   クリックしてイメージ画像を選択
-                = f.file_field :image_icon, class: "d-none"
-          -# .form-group.col-12
-          -#   .h3 タグ
-          -#   .title_btn
-          -#     = f.collection_check_boxes(:skill_ids, Skill.all, :id, :skill_set, class: "form-control") do |skill|
-          -#       = skill.check_box
-          -#       = skill.text
-          -#     .title_description.text-danger 登録すると検索されやすくなるため成約率が上がります！
-          -#     .title_description.mb-3.text-muted 最大5件まで登録できます 例）Ruby PHP
+                = f.file_field :image_icon, class: "d-none", id: "image_icon"
+                - if @user.image_icon.present?
+                  = image_tag "#{@user.image_icon}", id: "img_prev", style: "width: 200px; height: 200px; border-radius: 50%;", class: "ml-5 shadow-sm"
+                - else
+                  = image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQfY6o0sCSzzGmKM5M23o8EJVUSeu1sq1bJcddtlZDGPip9A36", id: "img_prev", style: "width: 200px; height: 200px; border-radius: 50%;", class: "ml-5 shadow-sm"
+
           .form-group.col-12 
             .h3 自己紹介
             .introduce.text-muted 自己紹介は500文字以内で記入してください。

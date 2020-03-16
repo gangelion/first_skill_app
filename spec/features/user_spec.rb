@@ -46,7 +46,7 @@ feature 'user', type: :feature do
     end
     scenario 'プロフィールが編集できること' do
       fill_in 'user_name', with: "ユーザーネームを編集しました"
-      attach_file 'user_image_icon', "#{Rails.root}/public/uploads/user/image_icon/1/ダウンロード.png"
+      attach_file 'image_icon', "#{Rails.root}/public/uploads/user/image_icon/1/ダウンロード.png"
       fill_in 'user_introduce', with: "自己紹介を編集しました"
       click_on('保存する')
       expect(current_path).to eq users_path
