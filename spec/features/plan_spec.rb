@@ -29,7 +29,7 @@ feature 'plan', type: :feature do
 			fill_in 'formTagInput', with: 'HTML'
 			fill_in 'plan_description', with: 'テストです。'
       fill_in 'plan_price', with: 1000
-      click_on '登録する'
+			click_on('登録する')
     }.to change(Plan, :count).by(1)
     expect(current_path).to eq users_path
 		expect(page).to have_selector('.user__name_link')
@@ -42,14 +42,14 @@ feature 'plan', type: :feature do
 		click_link('プランを編集する')
 		expect(current_path).to eq edit_plan_path("#{plan.id - 1}")
 		fill_in 'plan_title', with: 'プランタイトルを編集しました'
-		fill_in 'formTagInput', with: 'Ruby'
+		# fill_in 'formTagInput', with: 'Ruby'
 		fill_in 'plan_description', with: 'プラン説明を編集しました'
 		fill_in 'plan_price', with: 10000
 		click_on('保存する')
 		expect(page).to have_content('プランタイトルを編集しました')
 		click_on('プランタイトルを編集しました')
 		expect(page).to have_content('プランタイトルを編集しました')
-		expect(page).to have_link('Ruby')
+		# expect(page).to have_link('Ruby')
 		expect(page).to have_content('プラン説明を編集しました')
 		expect(page).to have_content(10000)
 		# プラン削除
