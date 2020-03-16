@@ -7,7 +7,6 @@ class PlansController < ApplicationController
 
   def new
     @plan = Plan.new
-    @plan.users_plans.new
     @plan.skills.new
   end
 
@@ -26,6 +25,7 @@ class PlansController < ApplicationController
   end
 
   def edit
+    @plan.skills.new
   end
 
   def update
