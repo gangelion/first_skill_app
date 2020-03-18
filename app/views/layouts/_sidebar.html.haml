@@ -13,6 +13,9 @@
       %i.far.fa-comments
         = link_to "投稿したプラン", plans_path, class: "side__menu"
     %li
+      %i.far.fa-newspaper
+        = link_to "投稿した記事", articles_path, class: "side__menu"
+    %li
       %i.fas.fa-user-cog
       = link_to "設定", edit_user_path(current_user.id), class: "side__menu"
     %li.mt-2

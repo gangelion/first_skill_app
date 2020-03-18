@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   
   resources :relationships, only: [:create, :destroy]
 
+  resources :articles, only: [:index, :new, :create]
+
   namespace :mentors do
     resources :main, only: [:index]
   end
