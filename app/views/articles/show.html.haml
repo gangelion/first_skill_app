@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-8.bg-white.mx-3.my-5.shadow-sm{style: "height: 100vh;"}
+      .col-12.d-flex.justify-content-end.pt-4.border-bottom{style: "height: 60px;"}
+        .mx-3
+          %i.fas.fa-edit.mr-3
+            = link_to "記事を編集する", edit_article_path
+          %i.fas.fa-trash
+          = link_to "削除する", article_path, method: :delete
+      .col-12.my-3{style: "height: 300px;"}
+        .h1.text-wrap.text-break
+          = @article.title
+        .my-3.d-flex.align-items-center
+          = image_tag "#{@article.user.image_icon}", class: "shadow-sm", onerror: "this.src='https://www.silhouette-illust.com/wp-content/uploads/2017/01/book_pen_23791-300x300.jpg'", style: "width: 40px; height: 40px; border-radius: 50%;"
+          .mx-3
+            = @article.user.name
+      .col-12.text-wrap.text-break
+        = @article.content
+    .col-3.bg-white.mx-3.my-5.shadow-sm{style: "height: 80vh"}

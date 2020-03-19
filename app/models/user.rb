@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :user
   has_many :messages, dependent: :delete_all
   has_many :replymessages, class_name: 'Message', foreign_key: 'sender_id', dependent: :delete_all
+  has_many :articles, dependent: :delete_all
   
   validates :name, presence: true, length: { maximum: 20 }
   validates :introduce, length: { maximum: 500 }

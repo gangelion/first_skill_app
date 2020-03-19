@@ -1,0 +1,5 @@
+.container
+  .row
+    .col-12
+      = form_with model: @article, local: true do |f|
+        = render partial: "form", locals: { f: f }
