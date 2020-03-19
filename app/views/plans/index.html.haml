@@ -2,13 +2,7 @@
   .row
     .col-12.bg-light.d-flex.my-5
       .col-3
-        .col-12.bg-white.shadow.m-2{style: "height: 400px; word-wrap: break-word;"}
-          TAG
-          .col-12
-            - @skills.each do |skill|
-              = link_to "# #{skill.skill_set}", skills_path(id: "#{skill.id}"), class: "tag__link m-1 d-block"
-        .col-12.bg-white.shadow.m-2{style: "height: 300px;"} 
-          CATEGORY
+        = render "shared/left_box"
       .col-6
         .col-12.bg-light.text-info.font-weight-bold.h4.mx-2
           プラン
@@ -21,15 +15,11 @@
             = link_to "登録する", new_plan_path, class: "btn btn-outline-info"
         .col-12
           - @plans.each do |plan|
-            - if plan.user_id == current_user.id
-              .col-12.bg-white.shadow.mt-3
-                .py-3.text-center
-                  = link_to image_tag("#{plan.plan_image}", onerror: "this.src='https://www.silhouette-illust.com/wp-content/uploads/2017/01/book_pen_23791-300x300.jpg'"), plan_path(plan.id), class: "plan__show_link"
-                .pb-5
-                  = link_to "#{plan.title}", plan_path(plan.id), class: "plan__show_link plan__show_link_title", style: "word-wrap: break-word"
+            .col-12.bg-white.shadow.mt-3
+              .py-3.text-center
+                = link_to image_tag("#{plan.plan_image}", onerror: "this.src='https://www.silhouette-illust.com/wp-content/uploads/2017/01/book_pen_23791-300x300.jpg'"), plan_path(plan.id), class: "plan__show_link"
+              .pb-5
+                = link_to "#{plan.title}", plan_path(plan.id), class: "plan__show_link plan__show_link_title", style: "word-wrap: break-word"
         .col-12.mt-3
       .col-3 
-        .col-12.bg-white.shadow.m-2{style: "height: 150px;"}
-          メンター募集
-        .col-12.bg-white.shadow.m-2{style: "height: 150px;"}
-          勉強中
+        = render "shared/right_box"

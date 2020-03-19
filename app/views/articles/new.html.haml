@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-12
+      = form_with model: @article, local: true do |f|
+        .col-12.my-5
+          = f.text_field :title, placeholder: "タイトル", class: "form-control", required: true, maxlength: 80
+        .col-12.my-5
+          = f.text_area :content, class: "form-control", required: true, rows: 15, maxlength: 2000
+        .col-12.text-center.my-5
+          = f.submit "投稿する", class: "btn btn-lg btn-outline-info"

@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
   before_action :set_plan_params, only: [:show, :edit, :update, :destroy]
   def index
-    @plans = Plan.all
+    @plans = Plan.where(user_id: current_user.id)
     @skills = Skill.first(8)
   end
 
@@ -12,7 +12,6 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.new(plan_params)
-    @plan.user_id = current_user.id
     if @plan.save
       redirect_to users_path
     else
@@ -63,7 +62,7 @@ class PlansController < ApplicationController
   private
   
   def plan_params
-    params.require(:plan).permit(:title, :description, :plan_image, :price, :user_id, users_plans_attributes: [:user_id], skills_attributes: [:skill_set])
+    params.require(:plan).permit(:title, :description, :plan_image, :price, users_plans_attributes: [:user_id], skills_attributes: [:skill_set]).merge(user_id: current_user.id)
   end
 
   def set_plan_params

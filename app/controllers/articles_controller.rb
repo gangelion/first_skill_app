@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all
+    @articles = Article.where(user_id: current_user.id)
+    @skills = Skill.first(8)
   end
 
   def new
@@ -9,7 +10,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    if @article.save(article_params)
+    @article = Article.new(article_params)
+    if @article.save
       redirect_to users_path
     else
       render :new
@@ -19,6 +21,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content).merge(user_id: current_user.id)
   end
 end

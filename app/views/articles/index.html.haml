@@ -1,0 +1,25 @@
+.container
+  .row
+    .col-12.bg-light.d-flex.my-5
+      .col-3
+        = render "shared/left_box"
+      .col-6
+        .col-12.bg-light.text-info.font-weight-bold.h4.mx-2
+          タイムライン
+        .col-12.mx-2{style: "height: 50px;"}
+          勉強になったこと、メンターとして教えてることなど、投稿して実力を見える化しましょう！
+        .col-12.bg-white.shadow.d-flex.align-items-center.mx-2{style: "height: 100px;"}
+          .col-9 
+            あなたも投稿してみよう
+          .col-3
+            = link_to "登録する", new_article_path, class: "btn btn-outline-info"
+        .col-12
+          - @articles.each do |article|
+            .col-12.bg-white.shadow.mt-3
+              .py-3.text-center
+                = link_to image_tag("#{article.user.image_icon}", onerror: "this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQfY6o0sCSzzGmKM5M23o8EJVUSeu1sq1bJcddtlZDGPip9A36'"), "#", class: "article__show_link"
+              .pb-5
+                = link_to "#{article.title}", "#", class: "article__show_link", style: "word-wrap: break-word"
+        .col-12.mt-3
+      .col-3 
+        = render "shared/right_box"
