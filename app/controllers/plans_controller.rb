@@ -13,8 +13,9 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     if @plan.save
-      redirect_to users_path
+      redirect_to users_path, notice: "プランを登録しました"
     else
+      flash.now[:alert] = "プランの登録に失敗しました"
       render :new
     end   
   end
@@ -29,8 +30,9 @@ class PlansController < ApplicationController
 
   def update
     if @plan.update(plan_params)
-      redirect_to users_path
+      redirect_to users_path, notice: "プランを更新しました"
     else
+      flash.now[:alert] = "プランの更新に失敗しました"
       render :edit
     end
   end
@@ -39,6 +41,7 @@ class PlansController < ApplicationController
     if @plan.destroy
       render :destroy
     else
+      flash.now[:alert] = "プランの削除に失敗しました"
       redirect_back(fallback_location: root_path)
     end
   end

@@ -50,6 +50,7 @@ feature 'user', type: :feature do
       fill_in 'user_introduce', with: "自己紹介を編集しました"
       click_on('保存する')
       expect(current_path).to eq users_path
+      expect(page).to have_content('ユーザー情報を更新しました')
       click_on('プロフィール')
       expect(page).to have_content('ユーザーネームを編集しました')
     end
