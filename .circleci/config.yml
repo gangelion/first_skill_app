@@ -1,0 +1,73 @@
+version: 2
+jobs:
+  build:
+    parallelism: 1
+    working_directory: ~/myapp
+    docker:
+      - image: circleci/ruby:2.5.1-node
+        environment:
+          HOST: 127.0.0.1
+          USER: root
+          RAILS_ENV: test
+          BUNDLER_VERSION: 2.1.2
+      - image: circleci/mysql:5.6
+        environment:
+          MYSQL_USER: root
+          MYSQL_DATABASE: first_skill_app_test
+          MYSQL_ROOT_PASSWORD: password0000
+    steps:
+      - checkout
+
+      - run:
+          name: setup bundler 2
+          command: |
+              sudo gem update --system
+              sudo gem uninstall -ax bundler
+              sudo gem install bundle
+
+
+      # Restore bundle cache
+      - type: cache-restore
+        name: Restore bundle cache
+        key: rails-demo-bundle-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      # Store bundle cache
+      - type: save-cache
+        name: Store bundle cache
+        key: rails-demo-bundle-{{ checksum "Gemfile.lock" }}
+        paths: vendor/bundle
+
+      # Restore yarn cache
+      - type: cache-restore
+        name: Restore bundle cache
+        key: rails-demo-bundle-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: yarn Install
+          command: yarn install
+
+      # Store yarn cache
+      - type: cache-save
+        name: Save bundle cache
+        key: rails-demo-bundle-{{ checksum 'yarn.lock' }}
+        paths: .yarn-cache
+
+      # Database setup
+      - run:
+          name: Database setup
+          command: |
+            bundle exec bin/rails db:create
+            bundle exec rails db:migrate
+
+      # Run rspec in parallel
+      - type: shell
+        command: |
+          bundle exec rspec --profile 10 \
+                            --out test_results/rspec.xml \
+                            --format progress \
+                            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
