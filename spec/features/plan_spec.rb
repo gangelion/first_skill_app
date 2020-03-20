@@ -33,6 +33,7 @@ feature 'plan', type: :feature do
     }.to change(Plan, :count).by(1)
     expect(current_path).to eq users_path
 		expect(page).to have_selector('.user__name_link')
+		expect(page).to have_content('プランを登録しました')
 		# プラン一覧確認
 		click_link('投稿したプラン')
 		expect(current_path).to eq plans_path
@@ -46,6 +47,7 @@ feature 'plan', type: :feature do
 		fill_in 'plan_description', with: 'プラン説明を編集しました'
 		fill_in 'plan_price', with: 10000
 		click_on('保存する')
+		expect(page).to have_content('プランを更新しました')
 		expect(page).to have_content('プランタイトルを編集しました')
 		click_on('プランタイトルを編集しました')
 		expect(page).to have_content('プランタイトルを編集しました')

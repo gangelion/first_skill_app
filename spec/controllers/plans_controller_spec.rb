@@ -4,8 +4,11 @@ describe PlansController do
 	let(:user) { create(:user) }
 	let(:plan) { create(:plan) }
 	describe 'GET #index' do
+		before do
+			login user
+		end
 		it "配列が取得できること(@plans)" do
-			plans = create_list(:plan, 3)
+			plans = create_list(:plan, 3, user_id: user.id)
 			get :index
 			expect(assigns(:plans)).to match(plans)
 		end
