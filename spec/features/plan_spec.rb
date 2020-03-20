@@ -17,10 +17,10 @@ feature 'plan', type: :feature do
     find(".login__main_btn").click
 		expect(current_path).to eq users_path
 		expect(page).to have_no_content('First Skill App')
-		expect(page).to have_no_content('ログイン')
+		expect(page).to have_no_link('ログイン')
 		expect(page).to have_no_content('無料登録')
 		expect(page).to have_content('HOME')
-		expect(page).to have_content('ログアウト')
+		expect(page).to have_link('ログアウト')
 		# プラン作成
 		expect {
 			click_link('メンタープランの登録はこちら')
