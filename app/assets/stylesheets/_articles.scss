@@ -1,0 +1,8 @@
+.article__show_link {
+  color: $text-color;
+  text-decoration: none;  
+}
+.article__show_link:hover {
+  text-decoration: none;  
+  @extend .opacity_style;
+}

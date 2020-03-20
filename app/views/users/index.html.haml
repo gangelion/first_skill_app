@@ -36,7 +36,25 @@
         .text-muted.my-4
           = link_to "もっとみる", all_mentor_plans_path, class: "mentor__link"
       = render "shared/skill_btn"
-      .col-12.bg-white.mb-3.shadow{style: "height: 500px;"} timeline
-    .col-12.bg-light{style: "height: 50px;"} 
-
+      .pt-5
+        タイムライン
+      .col-12.my-4{style: "height: 500px;"}
+        - if @articles[0..1] != nil
+          .my-3.d-flex
+            - @articles[0..1].each do |article|
+              .col-6.bg-white.mx-1.shadow{style: "height: 220px;"}
+                .d-block.my-3.text-wrap.text-break{style: "height: 100px;"}
+                  = link_to "#{article.title}", article_path(article.id), class: "article__show_link"
+                .d-flex.align-items-center
+                  = link_to image_tag("#{article.user.image_icon}", onerror: "this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQfY6o0sCSzzGmKM5M23o8EJVUSeu1sq1bJcddtlZDGPip9A36'", style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(article.user.id)
+                  = link_to "#{article.user.name}", user_path(article.user.id), class: "user__name_link"
+        - if @articles[2..3] != nil
+          .my-3.d-flex
+            - @articles[2..3].each do |article|
+              .col-6.bg-white.mx-1.shadow{style: "height: 220px;"}
+                .d-block.my-3.text-wrap.text-break{style: "height: 100px;"}
+                  = link_to "#{article.title}", article_path(article.id), class: "article__show_link"
+                .d-flex.align-items-center
+                  = link_to image_tag("#{article.user.image_icon}", onerror: "this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQfY6o0sCSzzGmKM5M23o8EJVUSeu1sq1bJcddtlZDGPip9A36'", style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(article.user.id)
+                  = link_to "#{article.user.name}", user_path(article.user.id), class: "user__name_link"
 
