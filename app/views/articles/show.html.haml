@@ -2,11 +2,12 @@
   .row
     .col-8.bg-white.mx-3.my-5.shadow-sm{style: "height: 100vh;"}
       .col-12.d-flex.justify-content-end.pt-4.border-bottom{style: "height: 60px;"}
-        .mx-3
-          %i.fas.fa-edit.mr-3
-            = link_to "記事を編集する", edit_article_path
-          %i.fas.fa-trash
-          = link_to "削除する", article_path, method: :delete
+        - if @article.user.id == current_user.id
+          .mx-3
+            %i.fas.fa-edit.mr-3
+              = link_to "記事を編集する", edit_article_path, class: "article__edit_link"
+            %i.fas.fa-trash
+              = link_to "削除する", article_path, method: :delete, class: "article__destroy_link"
       .col-12.my-3{style: "height: 300px;"}
         .h1.text-wrap.text-break
           = @article.title

@@ -6,3 +6,21 @@
   text-decoration: none;  
   @extend .opacity_style;
 }
+
+.article__edit_link {
+  color: $text-color;
+  text-decoration: none;
+}
+.article__edit_link:hover {
+  text-decoration: none;  
+  @extend .opacity_style;
+}
+
+.article__destroy_link {
+  color: $text-color;
+  text-decoration: none;
+}
+.article__destroy_link:hover {
+  text-decoration: none;  
+  @extend .opacity_style;
+}
