@@ -1,15 +1,13 @@
 class UsersController < ApplicationController
-  before_action :set_user_params, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_params, only: %i[show edit update destroy]
   def index
     @plans = Plan.includes(:user).group(:user_id).order("created_at DESC")
     @articles = Article.order("created_at DESC")
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_update_params)
@@ -28,8 +26,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def delete_confirm
-  end
+  def delete_confirm; end
 
   private
 
@@ -40,5 +37,4 @@ class UsersController < ApplicationController
   def set_user_params
     @user = User.find(params[:id])
   end
-
 end

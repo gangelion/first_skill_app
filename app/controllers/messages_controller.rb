@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-  
   def index
     @messages = Message.where(user_id: current_user.id).order("created_at DESC")
   end
@@ -19,7 +18,7 @@ class MessagesController < ApplicationController
   end
 
   private
-  
+
   def message_params
     params.permit(:content, :user_id, :sender_id)
   end

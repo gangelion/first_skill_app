@@ -8,13 +8,13 @@ describe User do
     end
 
     it "is invalid without a name" do
-      user = build(:user, name: "") 
+      user = build(:user, name: "")
       user.valid?
       expect(user.errors[:name]).to include("を入力してください")
     end
-    
+
     it "is invalid without a email" do
-      user = build(:user, email: "") 
+      user = build(:user, email: "")
       user.valid?
       expect(user.errors[:email]).to include("を入力してください")
     end
@@ -36,7 +36,7 @@ describe User do
       user.valid?
       expect(user.errors[:name]).to include("は20文字以内で入力してください")
     end
-    
+
     it "is valid with a name that has less than 20 characters" do
       user = build(:user, name: "a" * 20)
       expect(user).to be_valid
@@ -48,7 +48,7 @@ describe User do
       another_user.valid?
       expect(another_user.errors[:email]).to include("はすでに存在します")
     end
-    
+
     it "is invalid with a introduce that has more than 501 characters" do
       user = build(:user, introduce: "a" * 501)
       user.valid?
@@ -59,6 +59,5 @@ describe User do
       user = build(:user, introduce: "a" * 500)
       expect(user).to be_valid
     end
-    
   end
 end

@@ -21,12 +21,12 @@ feature 'message', type: :feature do
     end
   end
   feature 'メッセージを確認する' do
-    background {
+    background do
       visit new_user_session_path
       fill_in 'user_email', with: user.email
       fill_in 'user_password', with: user.password
       find(".login__main_btn").click
-    }
+    end
     scenario 'user_messages_pathに遷移すること' do
       click_link('メッセージ')
       expect(current_path).to eq user_messages_path(user)
@@ -38,13 +38,13 @@ feature 'message', type: :feature do
         click_link('メッセージ')
         expect(current_path).to eq user_messages_path(user)
         expect(page).to have_content('件のメッセージが見つかりました。')
-        expect {
+        expect do
           click_on('確認する')
           expect(current_path).to eq user_message_path(user.id, receive_message.id)
           fill_in 'content', with: message.content
           click_on('返信する')
           expect(current_path).to eq users_path
-        }.to change(Message, :count).by(2)
+        end.to change(Message, :count).by(2)
       end
     end
     context 'メッセージがなかった場合' do

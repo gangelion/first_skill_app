@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_action :set_plan_params, only: [:show, :edit, :update, :destroy]
+  before_action :set_plan_params, only: %i[show edit update destroy]
   def index
     @plans = Plan.where(user_id: current_user.id)
     @skills = Skill.first(8)
@@ -17,7 +17,7 @@ class PlansController < ApplicationController
     else
       flash.now[:alert] = "プランの登録に失敗しました"
       render :new
-    end   
+    end
   end
 
   def show
@@ -63,7 +63,7 @@ class PlansController < ApplicationController
   end
 
   private
-  
+
   def plan_params
     params.require(:plan).permit(:title, :description, :plan_image, :price, skills_attributes: [:skill_set]).merge(user_id: current_user.id)
   end

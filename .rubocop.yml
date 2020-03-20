@@ -1,6 +1,7 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
+  TargetRubyVersion: 2.5.1
   Exclude:
     - bin/*
     - db/schema.rb
@@ -8,7 +9,7 @@ AllCops:
     - db/migrate/*
     - vendor/**/*
   Rails:
-    enabled: true
+    Enabled: true
 
 Style/Documentation:
   Enabled: false
@@ -21,3 +22,32 @@ Metrics/LineLength:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
+
+AccessorMethodName:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+IndentationWidth:
+  Enabled: false
+
+UselessAssignment:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'app/models/plan.rb'
