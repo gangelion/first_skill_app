@@ -39,6 +39,8 @@
             = f.text_field :keyword, placeholder: "Rubyなどスキル名で検索", class: "search__btn"
             = f.submit "検索", class: "btn btn-light my-sm-0"
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-light ml-5"
+    .bg-light{style: "height: 20px;"}
+    = render "layouts/notifications"
     = yield
     %footer.d-flex.justify-content-start.bg-white 
       .footer__left.container.text-center.my-5

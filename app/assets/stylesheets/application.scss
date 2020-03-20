@@ -65,3 +65,15 @@
 button:focus {
   outline: 0;
 }
+
+.notification {
+  color: white;
+  text-align: center;
+  .notice {
+    background-color: $main-color;
+  }
+
+  .alert {
+    background-color: #F35500;
+  }
+}
