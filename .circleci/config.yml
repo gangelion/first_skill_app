@@ -6,7 +6,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.1-node
         environment:
-          HOST: 127.0.0.1
+          HOST: db
           USER: root
           RAILS_ENV: test
           BUNDLER_VERSION: 2.1.2

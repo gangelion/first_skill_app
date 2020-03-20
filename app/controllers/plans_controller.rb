@@ -65,7 +65,7 @@ class PlansController < ApplicationController
   private
   
   def plan_params
-    params.require(:plan).permit(:title, :description, :plan_image, :price, users_plans_attributes: [:user_id], skills_attributes: [:skill_set]).merge(user_id: current_user.id)
+    params.require(:plan).permit(:title, :description, :plan_image, :price, skills_attributes: [:skill_set]).merge(user_id: current_user.id)
   end
 
   def set_plan_params
