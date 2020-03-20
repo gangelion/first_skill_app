@@ -7,7 +7,19 @@
             %i.fas.fa-edit.mr-3
               = link_to "記事を編集する", edit_article_path, class: "article__edit_link"
             %i.fas.fa-trash
-              = link_to "削除する", article_path, method: :delete, class: "article__destroy_link"
+              .article__destroy_link.d-inline(data-toggle="modal" data-target="#modal")
+                削除する
+            .modal.fade#modal(tabindex="-1" role="dialog" aria-labelledby="centerModal" aria-hidden="true")
+              .modal-dialog.modal-dialog-centered{role: "document"}
+                .modal-content
+                  .modal-header
+                    本当に削除しますか？
+                  %button.close(data-dismiss="modal" aria-label="Close")
+                    %span(aria-hidden="true")
+                  .modal-body
+                    削除するボタンを押すと、この投稿が削除されます
+                  .modal-footer
+                    = link_to "削除する", article_path, method: :delete, class: "btn btn-danger mx-auto"
       .col-12.my-3{style: "height: 300px;"}
         .h1.text-wrap.text-break
           = @article.title

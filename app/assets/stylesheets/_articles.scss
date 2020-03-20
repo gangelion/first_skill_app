@@ -21,6 +21,7 @@
   text-decoration: none;
 }
 .article__destroy_link:hover {
+  cursor: pointer;
   text-decoration: none;  
   @extend .opacity_style;
 }
