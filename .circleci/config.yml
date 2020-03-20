@@ -9,12 +9,22 @@ jobs:
           HOST: 127.0.0.1
           USER: root
           RAILS_ENV: test
-      - image: circleci/mysql5.6-alpine
+          BUNDLER_VERSION: 2.1.2
+      - image: circleci/mysql:5.6
         environment:
           MYSQL_USER: root
-          MYSQL_DB: first_skill_app_test
+          MYSQL_DATABASE: first_skill_app_test
+          MYSQL_ROOT_PASSWORD: password0000
     steps:
       - checkout
+
+      - run:
+          name: setup bundler 2
+          command: |
+              sudo gem update --system
+              sudo gem uninstall -ax bundler
+              sudo gem install bundle
+
 
       # Restore bundle cache
       - type: cache-restore
@@ -22,8 +32,9 @@ jobs:
         key: rails-demo-bundle-{{ checksum "Gemfile.lock" }}
 
       - run:
-          name: Bundle Install
-          command: bundle install --path vendor/bundle
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       # Store bundle cache
       - type: save-cache
