@@ -5,7 +5,7 @@ services:
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     environment:
       MYSQL_DATABASE: first_skill_app_development
-      MYSQL_ROOT_PASSWORD: password0000
+      MYSQL_ROOT_PASSWORD: ${ROOTPASS}
     # volumes:
     #   - ./mysql/mysql_data:/var/lib/mysql 
     ports:
