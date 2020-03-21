@@ -4,14 +4,14 @@ jobs:
     parallelism: 1
     working_directory: ~/myapp
     docker:
-      - image: circleci/ruby:2.5.1-node
+      - image: circleci/ruby:2.5.1-node-browsers
         environment:
-          HOST: db
           USER: root
           RAILS_ENV: test
-          BUNDLER_VERSION: 2.1.2
+          BUNDLER_VERSION: 2.0.2
       - image: circleci/mysql:5.6
         environment:
+          HOST: 127.0.0.1
           MYSQL_USER: root
           MYSQL_DATABASE: first_skill_app_test
           MYSQL_ROOT_PASSWORD: password0000
@@ -23,8 +23,7 @@ jobs:
           command: |
               sudo gem update --system
               sudo gem uninstall -ax bundler
-              sudo gem install bundle
-
+              sudo gem install bundler -v 2.0.2
 
       # Restore bundle cache
       - type: cache-restore
@@ -57,11 +56,17 @@ jobs:
         key: rails-demo-bundle-{{ checksum 'yarn.lock' }}
         paths: .yarn-cache
 
+      
+      - run:
+          name: mv database_ci.yml
+          command: | 
+              mv config/database_ci.yml config/database.yml
+
       # Database setup
       - run:
           name: Database setup
           command: |
-            bundle exec bin/rails db:create
+            bundle exec rails db:create
             bundle exec rails db:migrate
 
       # Run rspec in parallel
@@ -71,3 +76,7 @@ jobs:
                             --out test_results/rspec.xml \
                             --format progress \
                             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+
+      - run:
+          name: run rubocop
+          command: bundle exec rubocop
