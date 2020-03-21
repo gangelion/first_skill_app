@@ -55,7 +55,7 @@ describe Plan do
     it "is invalid without a price" do
       plan = build(:plan, price: "")
       plan.valid?
-      expect(plan.errors[:price]).to include("を入力してください。","は数値で入力してください")
+      expect(plan.errors[:price]).to include("を入力してください。", "は数値で入力してください")
     end
 
     it "is invalid with a price that has less than 999 yen" do
