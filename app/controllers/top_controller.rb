@@ -3,6 +3,5 @@ class TopController < ApplicationController
     @plans = Plan.includes(:user).group(:user_id).last(3)
   end
 
-  def mentor_top
-  end
+  def mentor_top; end
 end

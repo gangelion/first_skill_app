@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :message do
-    content {"テストメッセージです"}
+    content { "テストメッセージです" }
     user
     association :sender, factory: :user
   end

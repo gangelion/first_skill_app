@@ -2,12 +2,12 @@ require 'rails_helper'
 feature 'user', type: :feature do
   given(:user) { create(:user) }
   feature 'メインページでプロフィールリンクを押した時' do
-    background {
+    background do
       visit new_user_session_path
       fill_in 'user_email', with: user.email
       fill_in 'user_password', with: user.password
       find(".login__main_btn").click
-    }
+    end
     scenario 'user_pathに遷移し各リンクが表示されること' do
       click_on('プロフィール')
       expect(current_path).to eq user_path(user)
@@ -19,13 +19,13 @@ feature 'user', type: :feature do
   end
 
   feature '投稿しているプランを押した時' do
-    background {
+    background do
       visit new_user_session_path
       fill_in 'user_email', with: user.email
       fill_in 'user_password', with: user.password
       find(".login__main_btn").click
       click_on('プロフィール')
-    }
+    end
     scenario 'プラン一覧画面に遷移すること' do
       click_on('投稿しているプラン')
       expect(current_path).to eq plans_path
@@ -33,14 +33,14 @@ feature 'user', type: :feature do
   end
 
   feature 'プロフィールを編集するを押した時' do
-    background {
+    background do
       visit new_user_session_path
       fill_in 'user_email', with: user.email
       fill_in 'user_password', with: user.password
       find(".login__main_btn").click
       click_on('プロフィール')
       click_on('プロフィールを編集する')
-    }
+    end
     scenario 'プロフィール編集画面に遷移すること' do
       expect(current_path).to eq edit_user_path(user)
     end
@@ -56,14 +56,14 @@ feature 'user', type: :feature do
   end
 
   feature '退会するを押した時' do
-    background {
+    background do
       visit new_user_session_path
       fill_in 'user_email', with: user.email
       fill_in 'user_password', with: user.password
       find(".login__main_btn").click
       click_on('プロフィール')
       click_on('退会する')
-    }
+    end
     scenario '退会確認画面に遷移すること' do
       expect(current_path).to eq delete_confirm_user_path(user)
     end
@@ -85,13 +85,13 @@ feature 'user', type: :feature do
     end
   end
   feature '設定を押した時' do
-    background {
+    background do
       visit new_user_session_path
       fill_in 'user_email', with: user.email
       fill_in 'user_password', with: user.password
       find(".login__main_btn").click
       click_on('設定')
-    }
+    end
     scenario 'ユーザー編集画面に遷移すること' do
       expect(current_path).to eq edit_user_path(user)
     end
@@ -100,5 +100,3 @@ feature 'user', type: :feature do
     end
   end
 end
-
-

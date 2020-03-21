@@ -9,6 +9,7 @@ ja:
         email: Eメール
         password: パスワード
         password_confirmation: パスワード(確認用)
+        remember_me: 次回から自動的にログイン
         name: ユーザーネーム
         introduce: 自己紹介
       article:

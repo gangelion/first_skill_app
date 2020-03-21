@@ -12,20 +12,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, except: [:new, :create] do
-    resources :messages, only: [:index, :create, :show]
-    member do 
+  resources :users, except: %i[new create] do
+    resources :messages, only: %i[index create show]
+    member do
       get "delete_confirm"
     end
   end
-  resources :skills, only:[:index]
-  resources :chats, only: [:index, :create]
-  
-  resources :relationships, only: [:create, :destroy]
+  resources :skills, only: [:index]
+
+  resources :relationships, only: %i[create destroy]
 
   resources :articles
-
-  namespace :mentors do
-    resources :main, only: [:index]
-  end
 end
