@@ -5,4 +5,5 @@ test:
   username: 'root'
   port: 3306
   host: '127.0.0.1'
+  password: password0000
   database: first_skill_app_test
