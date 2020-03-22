@@ -1,8 +1,16 @@
 .tag__link {
   color: $text-color;
-  font-size: 14px;
+  font-size: 20px;
 }
 .tag__link:hover {
+  text-decoration: none;
+  @extend .opacity_style;
+}
+.tag__link_sm {
+  color: $text-color;
+  font-size: 12px;
+}
+.tag__link_sm:hover {
   text-decoration: none;
   @extend .opacity_style;
 }

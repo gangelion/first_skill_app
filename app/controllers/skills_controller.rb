@@ -1,6 +1,7 @@
 class SkillsController < ApplicationController
   def index
     @skill = Skill.find(params[:id])
-    @plans = Skill.find(params[:id]).plans.group(:user_id).includes(:user).page(params[:page]).per(5)
+    @skills = Skill.first(8)
+    @plans = Skill.find(params[:id]).plans.group(:user_id).includes(:user).page(params[:page]).per(10)
   end
 end
