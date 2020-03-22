@@ -96,7 +96,7 @@ feature 'user', type: :feature do
       expect(current_path).to eq edit_user_path(user)
     end
     scenario 'ユーザー編集画面に値が保持されていること' do
-      expect(page).to have_content('test')
+      expect(page).to have_field with: 'test'
     end
   end
 end

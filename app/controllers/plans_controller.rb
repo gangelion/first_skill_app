@@ -47,18 +47,18 @@ class PlansController < ApplicationController
   end
 
   def all_mentor
-    @plans = Plan.includes(:user, :skills).group(:user_id).page(params[:page]).per(5)
+    @plans = Plan.includes(:user, :skills).group(:user_id).page(params[:page]).per(10)
   end
 
   def new_arrival_mentor
-    @plans = Plan.includes(:user, :skills).group(:user_id).order("created_at DESC").page(params[:page]).per(5)
+    @plans = Plan.includes(:user, :skills).group(:user_id).order("created_at DESC").page(params[:page]).per(10)
   end
 
   def search
     if Plan.search(params[:keyword]).nil?
       redirect_back(fallback_location: root_path)
     else
-      @plans = Plan.search(params[:keyword]).includes(:user).group(:user_id).page(params[:page]).per(5)
+      @plans = Plan.search(params[:keyword]).includes(:user).group(:user_id).page(params[:page]).per(10)
     end
   end
 

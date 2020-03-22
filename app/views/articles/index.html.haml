@@ -16,10 +16,11 @@
         .col-12
           - @articles.each do |article|
             .col-12.bg-white.shadow.mt-3
-              .py-3.text-center
-                = link_to image_tag("#{article.user.image_icon}", onerror: "this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQfY6o0sCSzzGmKM5M23o8EJVUSeu1sq1bJcddtlZDGPip9A36'"), article_path(article.id), class: "article__show_link"
-              .pb-5
-                = link_to "#{article.title}", article_path(article.id), class: "article__show_link", style: "word-wrap: break-word"
+              .d-flex
+                .py-3
+                  = link_to image_tag("#{article.user.image_icon}", onerror: "this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQfY6o0sCSzzGmKM5M23o8EJVUSeu1sq1bJcddtlZDGPip9A36'", style: "width: 70px; height: 70px; border-radius: 50%;"), article_path(article.id), class: "article__show_link"
+                .py-3.h5
+                  = link_to "#{article.title}", article_path(article.id), class: "article__show_link", style: "word-wrap: break-word"
         .col-12.mt-3
       .col-3 
         = render "shared/right_box"
