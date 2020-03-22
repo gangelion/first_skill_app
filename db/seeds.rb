@@ -4,7 +4,7 @@
                password: "11111111",
                name: "test#{i}",
                introduce: "テストプレイ#{i}です",
-               created_at: "2020-01-0#{i}")
+               created_at: "2020-01-#{i}")
 end
 
 1.upto(20) do |i|
@@ -13,7 +13,7 @@ end
                description: "プラン#{i}のテストを記入しました",
                price: "#{i}000",
                user_id: i,
-               created_at: "2020-01-0#{i}")
+               created_at: "2020-01-#{i}")
 end
 
 Skill.create!([{ skill_set: "HTML/CSS" },
@@ -36,7 +36,7 @@ end
                   content: "メッセージ#{i}のテストを記入しました",
                   user_id: i,
                   sender_id: i + 1,
-                  created_at: "2020-01-0#{i}")
+                  created_at: "2020-01-#{i}")
 end
 
 1.upto(15) do |i|
@@ -44,5 +44,5 @@ end
                   title: "記事#{i}のテストタイトルを記入しました",
                   content: "記事#{i}のテストコンテントを記入しました",
                   user_id: i,
-                  created_at: "2020-01-0#{i}")
+                  created_at: "2020-01-#{i}")
 end
