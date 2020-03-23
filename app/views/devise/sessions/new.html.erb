@@ -3,6 +3,12 @@
     <div class="col-12 bg-white my-5 shadow-sm">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         
+        <div class="field">
+         <div class="font-weight-bold">テストアドレス : test@1</div>
+         <div class="font-weight-bold">テストパスワード : 11111111</div>
+         <div class="font-weight-bold">万が一テストユーザーが削除されている場合はアドレス : test@＊（＊に数字を入れてください）パスワード : 11111111でログインできます。</div>
+        </div>
+
         <div class="field pt-5 text-center">
          <div class="text-info h1 font-weight-bold">LOGIN</div>
         </div>
