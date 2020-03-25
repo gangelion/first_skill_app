@@ -50,6 +50,7 @@ feature 'top', type: :feature do
     end
     context 'スキルに紐づくプランがない時' do
       scenario '意図したスキル一覧に遷移すること' do
+        visit root_path
         click_on('HTML/CSS')
         expect(page).to have_content('HTML/CSS')
         expect(page).to have_content('見つかりませんでした')
@@ -97,28 +98,35 @@ feature 'top', type: :feature do
       end
       scenario 'スキルに紐づくメンター(プラン)が表示されること' do
         visit root_path
-        click_on('HTML/CSS')
+        find('a.htmlcss').click
         expect(page).to have_content('HTML/CSS')
         expect(page).to have_content('1人のメンターがみつかりました')
-        click_on('Ruby')
+        click_on('First Skill App')
+        find('a.ruby').click
         expect(page).to have_content('Ruby')
         expect(page).to have_content('1人のメンターがみつかりました')
-        click_on('JavaScript')
+        click_on('First Skill App')
+        find('a.javascript').click
         expect(page).to have_content('JavaScript')
         expect(page).to have_content('1人のメンターがみつかりました')
-        click_on('Python')
+        click_on('First Skill App')
+        find('a.python').click
         expect(page).to have_content('Python')
         expect(page).to have_content('1人のメンターがみつかりました')
-        click_on('PHP')
+        click_on('First Skill App')
+        find('a.php').click
         expect(page).to have_content('PHP')
         expect(page).to have_content('1人のメンターがみつかりました')
-        click_on('Java')
+        click_on('First Skill App')
+        find('a.java').click
         expect(page).to have_content('Java')
         expect(page).to have_content('1人のメンターがみつかりました')
-        click_on('SQL')
+        click_on('First Skill App')
+        find('a.sql').click
         expect(page).to have_content('SQL')
         expect(page).to have_content('1人のメンターがみつかりました')
-        click_on('その他')
+        click_on('First Skill App')
+        find('a.other').click
         expect(page).to have_content('その他')
         expect(page).to have_content('1人のメンターがみつかりました')
       end

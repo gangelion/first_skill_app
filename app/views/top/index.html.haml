@@ -31,6 +31,10 @@
             = link_to "#{plan.user.name}", plan_path(plan.id), class: "user__name_link"
             .col-12 
               = link_to "#{plan.title}", plan_path(plan.id), class: "plan_title_link", style: "word-wrap: break-word;"
+            - plan.plan_skill_tags.each do |tag|
+              - if tag.skill.skill_set  
+                .badge.badge-pill.badge-info
+                  = link_to "#{tag.skill.skill_set}", skills_path(id: "#{tag.skill.id}"), class: "tag__link_sm text-white", style: "word-wrap: break-word;"
             .col-12.position-absolute.fixed-bottom.mb-2
               = "料金 #{plan.price}円" 
       = link_to "メンターを探す", all_mentor_plans_path, class: "find_mentors_btn btn btn-outline-info btn-lg mx-auto my-5 d-block", style: "width:400px;"
