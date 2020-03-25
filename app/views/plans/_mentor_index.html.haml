@@ -23,6 +23,13 @@
             .col-10
               .col-12.h5.my-3
                 = link_to "#{plan.user.name}", plan_path(plan.id), class: "user__name_link"
+              - plan.plan_skill_tags.each do |tag|
+                - if tag.skill.skill_set
+                  .badge.badge-pill.badge-info
+                    = link_to(tag.skill.skill_set,
+                              skills_path(id: tag.skill.id),
+                              class: "tag__link_sm text-white",
+                              style: "word-wrap: break-word;")
               .col-12.h5{style: "height: 170px;"}
                 = link_to "#{plan.title}", plan_path(plan.id), class: "plan__show_link pt-3 d-block", style: "word-wrap: break-word;"
               .col-12

@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
   before_action :set_plan_params, only: %i[show edit update destroy]
+  before_action :set_skill_tags, only: %i[all_mentor new_arrival_mentor]
   def index
     @plans = Plan.where(user_id: current_user.id)
     @skills = Skill.first(8)
@@ -70,5 +71,9 @@ class PlansController < ApplicationController
 
   def set_plan_params
     @plan = Plan.find(params[:id])
+  end
+
+  def set_skill_tags
+    @skill_tags = PlanSkillTag.all
   end
 end
