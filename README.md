@@ -35,19 +35,19 @@ Elastic IP http://18.178.33.110/
 - ページネーション機能
 ## DEMO
 - TOPページ
-![screencapture-18-178-33-110-2020-03-25-15_33_45](https://user-images.githubusercontent.com/59118646/77508512-3e7d8600-6eae-11ea-9749-11af549857df.png)
+![screencapture-18-178-33-110-2020-03-27-11_45_19](https://user-images.githubusercontent.com/59118646/77716042-8fad8700-7020-11ea-891f-1c31d4a766f0.png)
 
 - メインページ
-![screencapture-18-178-33-110-users-2020-03-25-15_37_39](https://user-images.githubusercontent.com/59118646/77508697-a0d68680-6eae-11ea-976c-30847463847f.png)
+![screencapture-18-178-33-110-users-2020-03-27-11_47_18](https://user-images.githubusercontent.com/59118646/77716128-c71c3380-7020-11ea-9af3-06bf40f51129.png)
 
 - プラン作成画面
 ![screencapture-localhost-3000-plans-new-2020-03-22-23_00_51](https://user-images.githubusercontent.com/59118646/77251322-0d743a00-6c91-11ea-8612-528cb9140112.png)
 
 - メンター一覧画面
-![screencapture-localhost-3000-plans-all-mentor-2020-03-23-00_29_29](https://user-images.githubusercontent.com/59118646/77253427-73ff5500-6c9d-11ea-9933-dd0272779a6c.png)
+![screencapture-18-178-33-110-plans-new-arrival-mentor-2020-03-27-11_49_02](https://user-images.githubusercontent.com/59118646/77716237-06e31b00-7021-11ea-836b-e4d8af3224ca.png)
 
 - メンタースキル絞り込み画面
-![screencapture-localhost-3000-skills-2020-03-22-23_03_28](https://user-images.githubusercontent.com/59118646/77251384-6512a580-6c91-11ea-8742-d5227ee0ec77.png)
+![screencapture-18-178-33-110-plans-search-2020-03-27-11_50_31](https://user-images.githubusercontent.com/59118646/77716308-35f98c80-7021-11ea-8922-7dc72ebbee70.png)
 
 - プラン詳細画面
 ![screencapture-18-178-33-110-plans-22-2020-03-25-15_44_53](https://user-images.githubusercontent.com/59118646/77509223-aed8d700-6eaf-11ea-88f1-f6b2957da28a.png)
