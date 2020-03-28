@@ -1,7 +1,7 @@
 ## アプリタイトル
 first_skill_app 
 ## URL
-Elastic IP http://18.178.33.110/
+https://firstskillapp.com/
 ## 概要
 メンターマッチングサイトMENTAのクローンサイトです。
 ## テストアカウント
@@ -22,7 +22,8 @@ Elastic IP http://18.178.33.110/
 ## 環境仕様
 - Dockerによる開発環境構築
 - CircleCIによる自動テスト（rubocop,siderによる自動コードレビュー）
-- CapistranoによるAWSへの自動デプロイ
+- Capistranoによる自動デプロイ
+- AWS(EC2,VPC,route53,Certificate Manager)
 ## アプリケーション仕様
 - ユーザーサインイン・ログイン機能
 - ユーザー編集、削除（退会）機能
