@@ -9,13 +9,13 @@
         .mb-3
           = link_to "総合", all_mentor_plans_path, class: " mentor__link h5 border-right border-dark pr-3"
           = link_to "新着", new_arrival_mentor_plans_path, class: " mentor__link h5 mentor__link px-3"
-        - if plans.length == 0
+        - if plans.length.zero?
           .col-12.bg-white.text-danger.justify-content-center.shadow-sm.d-flex.align-items-center{style: "height: 50px;"}
             %i.fas.fa-exclamation-triangle
             メンターが見つかりませんでした。
         - else
           .col-12.py-2  
-            = "#{plans.length}人のメンターがみつかりました。"
+            #{plans.length}人のメンターがみつかりました。
         - plans.each do |plan|
           .col-12.bg-white.my-3.d-flex.shadow{style: "height: 300px;"}
             .col-2
