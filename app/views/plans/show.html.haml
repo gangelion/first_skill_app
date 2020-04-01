@@ -11,7 +11,7 @@
         - if user_signed_in? && current_user.id != @user.id
           .col-12.text-center.my-3
             = render partial: "relationships/follow_button", locals: { user: @user }            
-            = render "messages/new"
+            = render partial: "messages/new", locals: { user: @user }
       .col-lg-9.bg-white.shadow.mx-2{style: "word-wrap: break-word;"}
         .m-3
           - @plan.plan_skill_tags.each do |tag|

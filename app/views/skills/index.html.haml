@@ -1,7 +1,7 @@
 .container
   .row
     .col-xl-3.d-none.d-xl-block.my-3
-      = render "shared/left_box"
+      = render partial: "shared/left_box", locals: { skills: @skills }
     .col-xl-9
       .bg-light
         .h3.my-4.text-info

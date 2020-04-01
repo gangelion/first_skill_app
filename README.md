@@ -22,7 +22,7 @@ https://firstskillapp.com/
 ## 環境仕様
 - Dockerによる開発環境構築
 - CircleCIによる自動テスト（rubocop,siderによる自動コードレビュー）
-- Capistranoによる自動デプロイ
+- CircleCI,Capistranoによる自動デプロイ
 - AWS(EC2,VPC,route53,Certificate Manager)
 ## アプリケーション仕様
 - ユーザーサインイン・ログイン機能
