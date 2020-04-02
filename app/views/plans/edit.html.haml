@@ -7,7 +7,7 @@
         .row.my-5
           .h2.text-info メンタープラン編集
         = render partial: "shared/errors", locals: { target: @plan }
-        = render partial: "form", locals: { f: f }
+        = render partial: "form", locals: { f: f, plan: @plan }
         .row.bg-light 
           .form-group.mx-auto.my-5
             = f.submit "保存する", class: "btn btn-info btn-lg" 

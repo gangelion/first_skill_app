@@ -2,7 +2,7 @@
   .row
     .col-12.bg-light.d-flex.my-5
       .col-3
-        = render "shared/left_box"
+        = render partial: "shared/left_box", locals: { skills: @skills }
       .col-6
         .col-12.bg-light.text-info.font-weight-bold.h4.mx-2
           タイムライン
