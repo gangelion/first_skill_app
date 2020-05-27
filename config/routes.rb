@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :user
 
+  # get '*unmatched_route', to: 'application#render_404'
+
   root to: 'top#index'
   get 'top', to: 'top#mentor_top'
 

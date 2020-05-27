@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  rescue_from ActionView::MissingTemplate, with: :render_404
+  def render_404
+    render template: 'shared/error404', status: 404
+  end
+
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?

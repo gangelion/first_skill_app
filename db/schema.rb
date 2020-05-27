@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_03_18_135715) do
 
-  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
     t.bigint "user_id"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_03_18_135715) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
-  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.text "content", null: false
     t.bigint "user_id"
     t.bigint "sender_id"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_03_18_135715) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "plan_skill_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "plan_skill_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.bigint "plan_id"
     t.bigint "skill_id"
     t.datetime "created_at", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_03_18_135715) do
     t.index ["skill_id"], name: "index_plan_skill_tags_on_skill_id"
   end
 
-  create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
     t.string "plan_image"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_03_18_135715) do
     t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
-  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "follow_id"
     t.datetime "created_at", null: false
@@ -61,13 +61,13 @@ ActiveRecord::Schema.define(version: 2020_03_18_135715) do
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
-  create_table "skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "skill_set", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
